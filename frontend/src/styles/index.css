@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Amulya';
+    src: url('../fonts/Amulya-Variable.ttf');
+}
+
+@font-face {
+    font-family: 'Synonym';
+    src: url('../fonts/Synonym-Variable.ttf');
+}
+
+.amulya {
+    font-family: 'Amulya';
+    color: #DFDFDF;
+}
+
+.synonym {
+    font-family: 'Synonym';
+    color: #DFDFDF;
+}

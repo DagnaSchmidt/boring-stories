@@ -4,8 +4,8 @@ import Menu from '../components/Menu';
 
 const HomePage = () => {
   return (
-    <div className='bg-primary flex 2xl:justify-center'>
-      <div className='2xl:w-[86rem] bg-slate-500 lg:mx-20'>
+    <div className='bg-primary flex 2xl:justify-center h-screen'>
+      <div className='2xl:w-[86rem] w-full lg:mx-20'>
         <Menu />
         <HeroSection />
       </div>
