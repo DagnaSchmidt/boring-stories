@@ -14,6 +14,24 @@ const menuSlice = createSlice({
                 ...state,
                 open: !state.open
             }
+        },
+        changeReducerSelected(state, action) {
+            return {
+                ...state,
+                selected: action.payload
+            }
+        },
+        changeReducerPage(state, action) {
+            return {
+                ...state,
+                page: action.payload
+            }
+        },
+        changeReducerSort(state, action) {
+            return {
+                ...state,
+                sort: action.payload
+            }
         }
     }
 });
@@ -24,5 +42,23 @@ export const toggleMenu = () => {
     }
 }
 
-export const { toggleReducerMenu } = menuSlice.actions;
+export const switchSelected = (selected) => {
+    return dispatch => {
+        dispatch(changeReducerSelected(selected));
+    }
+}
+
+export const switchPage = (page) => {
+    return dispatch => {
+        dispatch(changeReducerPage(page));
+    }
+}
+
+export const switchSort = (sort) => {
+    return dispatch => {
+        dispatch(changeReducerSort(sort));
+    }
+}
+
+export const { toggleReducerMenu, changeReducerSelected, changeReducerPage, changeReducerSort } = menuSlice.actions;
 export default menuSlice.reducer;

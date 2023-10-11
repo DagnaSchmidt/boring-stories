@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import { toggleMenu } from '../reducer/menuReducer';
+import { toggleMenu } from '../../reducer/menuReducer';
 
 const ToggleMenuButton = () => {
     const menu = useSelector(state => state.menu);

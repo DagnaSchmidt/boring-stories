@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
-import Menu from '../components/Menu';
-import ToggleMenuButton from '../components/ToggleMenuButton';
+import Menu from '../components/menu/Menu';
+import ToggleMenuButton from '../components/menu/ToggleMenuButton';
 
 const HomePage = () => {
   return (
