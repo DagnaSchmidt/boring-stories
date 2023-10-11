@@ -6,11 +6,11 @@ const HeroSection = () => {
 
   return (
     <div className='flex flex-col w-full pt-52 max-sm:pt-44'>
-        <div className={menu.selected === null ? 'flex flex-row max-xl:flex-col gap-8' : 'max-xl:flex-column'}>
+        <div className={menu.selected === 'none' ? 'flex flex-row max-xl:flex-col gap-8' : 'max-xl:flex-column'}>
             <p className='max-sm:text-8xl text-9xl font-medium tracking-tighter amulya'>Boring</p>
             <p className='max-sm:text-8xl text-9xl font-medium tracking-tighter amulya'>Stories</p>
         </div>
-        <div className={menu.selected === null && 'pl-[25rem] max-xl:pl-16'}>
+        <div className={menu.selected === 'none' && 'pl-[25rem] max-xl:pl-16'}>
             <p className='synonym max-sm:text-sm text-xl'>from scandinavia and other places</p>
         </div>
         
