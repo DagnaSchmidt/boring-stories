@@ -4,7 +4,7 @@ const menuSlice = createSlice({
     name: 'menu',
     initialState: {
         open: false,
-        selected: null,
+        selected: 'none',
         sort: 'date',
         page: 'home'
     },
