@@ -9,10 +9,10 @@ const menuSlice = createSlice({
         page: 'home'
     },
     reducers: {
-        toggleReducerMenu(state) {
+        toggleReducerMenu(state, action) {
             return {
-                open: !state.open,
-                ...state
+                ...state,
+                open: !state.open
             }
         }
     }
