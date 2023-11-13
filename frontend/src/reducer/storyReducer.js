@@ -4,8 +4,8 @@ const storySlice = createSlice({
     name: 'story',
     initialState: {
         active: 'none',
-        new: [],
-        all: [],
+        new: [{}, {}, {}],
+        all: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
         details: {}
     },
     reducers: {
