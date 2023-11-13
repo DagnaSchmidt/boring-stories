@@ -12,7 +12,8 @@ const menuSlice = createSlice({
         toggleReducerMenu(state, action) {
             return {
                 ...state,
-                open: !state.open
+                open: !state.open,
+                selected: 'none'
             }
         },
         changeReducerSelected(state, action) {
