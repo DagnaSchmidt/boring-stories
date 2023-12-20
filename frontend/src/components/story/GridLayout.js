@@ -28,7 +28,7 @@ const GridLayout = () => {
               exit={{
                 width: '0'
               }}
-              className='absolute md:static top-14 right-0 bg-red-700 opacity-40 h-[90%] md:h-full z-20 overflow-scroll justify-self-end'
+              className='absolute md:static top-14 right-0 bg-red-700 opacity-40 h-[90%] md:h-full xl:min-w-[280px] z-20 overflow-scroll justify-self-end'
             >
 
               {story.active === 'none' &&

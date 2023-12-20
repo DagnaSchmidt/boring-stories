@@ -11,7 +11,7 @@ const HeroSection = () => {
 
   return (
     <AnimatePresence>
-        {(!menu.open || (menu.open && menu.selected === 'none' && width > 768) || (menu.open && menu.selected !== 'none' && width > 1280)) &&
+        {(!menu.open || (menu.open && menu.selected === 'none' && width > 767) || (menu.open && menu.selected !== 'none' && width > 1280)) &&
             <motion.div
                 className='flex flex-col w-full pt-44 md:pt-52'
                 initial={false}
@@ -25,7 +25,7 @@ const HeroSection = () => {
                     duration: 0.4
                 }}
             >
-                <div className='flex flex-row max-xl:flex-col gap-8 pr-8'>
+                <div className={`${menu.selected !== 'none' ? 'flex-col' : 'flex-row'} flex max-xl:flex-col gap-8 pr-8`}>
                     <p className='max-sm:text-8xl text-9xl font-medium tracking-tighter amulya'>Boring</p>
                     <p className='max-sm:text-8xl text-9xl font-medium tracking-tighter amulya'>Stories</p>
                 </div>
