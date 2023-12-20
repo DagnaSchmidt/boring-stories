@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 const Story = () => {
     const story = useSelector(state => state.story);
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
   return (
     <AnimatePresence>
