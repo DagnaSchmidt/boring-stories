@@ -7,13 +7,13 @@ import { switchSelected, toggleMenu } from '../../reducer/menuReducer';
 
 const GridLayout = () => {
     const menu = useSelector(state => state.menu);
-    const story = useSelector(state => state.story);
+    // const story = useSelector(state => state.story);
 
     const dispatch = useDispatch();
 
 
-    const newStories = useSelector(state => state.story.new);
-    const allStories = useSelector(state => state.story.all);
+    // const newStories = useSelector(state => state.story.new);
+    // const allStories = useSelector(state => state.story.all);
 
   return (
     <AnimatePresence>
