@@ -7,7 +7,6 @@ import { toggleMenu } from '../../reducer/menuReducer';
 const ToggleMenuButton = () => {
     const menu = useSelector(state => state.menu);
     const dispatch = useDispatch();
-    console.log(menu);
 
   return (
     <button className='pz-4 absolute lg:right-24 md:right-12 right-8 top-10 z-50' onClick={() =>dispatch(toggleMenu())}>

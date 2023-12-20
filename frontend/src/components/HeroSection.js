@@ -3,9 +3,10 @@ import { useSelector } from 'react-redux';
 
 const HeroSection = () => {
     const menu = useSelector(state => state.menu);
+    console.log(menu);
 
   return (
-    <div className='flex flex-col w-full pt-52 max-sm:pt-44'>
+    <div className={`${menu.open ? 'max-md:hidden' : ''} flex flex-col w-full pt-52 max-sm:pt-44`}>
         <div className={menu.selected === 'none' ? 'flex flex-row max-xl:flex-col gap-8' : 'max-xl:flex-column'}>
             <p className='max-sm:text-8xl text-9xl font-medium tracking-tighter amulya'>Boring</p>
             <p className='max-sm:text-8xl text-9xl font-medium tracking-tighter amulya'>Stories</p>
