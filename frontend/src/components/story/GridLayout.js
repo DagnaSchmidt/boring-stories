@@ -1,28 +1,49 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useSelector, useDispatch } from 'react-redux';
 
-import StoryContainer from './StoryContainer';
+import { switchSelected, toggleMenu } from '../../reducer/menuReducer';
+
 
 const GridLayout = () => {
     const menu = useSelector(state => state.menu);
+    const story = useSelector(state => state.story);
+
+    const dispatch = useDispatch();
+
+
     const newStories = useSelector(state => state.story.new);
     const allStories = useSelector(state => state.story.all);
-    console.log(newStories);
-
-    if(menu.selected !== 'new' && menu.selected !== 'all'){
-        return null;
-    }
 
   return (
-    <div className={menu.selected === 'new' ? 'absolute right-96 max-lg:right-80 max-md:right-0 max-md:top-24 w-[19rem] max-md:w-full max-md:z-50 z-40 bg-primary grid grid-cols-1 grid-rows-3 justify-items-center items-center h-full max-md:h-[calc(100%-6rem)] py-12 max-md:py-2 max-md:border-x-4 max-md:border-secondary'
-                                            : 'absolute right-96 max-lg:right-80 max-md:right-0 max-md:top-24 w-[calc(100%-29rem)] max-md:w-full max-md:z-50 z-40 bg-primary grid grid-cols-3 max-md:grid-cols-1 max-md:grid-rows-none max-md:gap-3 gap-32 justify-items-center items-center h-full max-md:h-[calc(100%-6rem)] overflow-scroll py-12 max-md:py-2 max-md:border-x-4 max-md:border-secondary'}>
-        {
-          menu.selected === 'new' ?
-            newStories.map(i => <StoryContainer />)
-            :
-            allStories.map(i => <StoryContainer />)
+    <AnimatePresence>
+        {menu.selected !== 'none' &&
+            <motion.div
+              initial={{
+                width: '0'
+              }}
+              animate={{
+                width: '100%'
+              }}
+              exit={{
+                width: '0'
+              }}
+              className='absolute md:static top-14 right-0 bg-red-700 opacity-40 h-[90%] md:h-full xl:min-w-[280px] z-20 overflow-scroll justify-self-end flex flex-col items-center'
+            >
+
+              <button className='ml-12 self-start md:ml-6 md:mt-6' onClick={() => dispatch(switchSelected('none'))}>
+                  <p className='amulya text-lg font-medium'>
+                      return
+                  </p>
+              </button>
+
+              <div onClick={() => dispatch(toggleMenu())} className='w-24 h-24 bg-slate-200 opacity-25'>
+                STORY
+              </div>
+
+            </motion.div>
         }
-    </div>
+    </AnimatePresence>
   )
 }
 
