@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { switchSelected, toggleMenu } from '../../reducer/menuReducer';
+import { switchSelected } from '../../reducer/menuReducer';
 import StoryPrev from './StoryPrev';
 
 
@@ -40,7 +40,7 @@ const GridLayout = () => {
 
               <div className='h-full flex flex-col justify-between py-11 bg-primary'>
                   {
-                    newStories.map(i => <StoryPrev />)
+                    newStories.map(i => <StoryPrev key={i.id} data={i} />)
                   }
               </div>
 
