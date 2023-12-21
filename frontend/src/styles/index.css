@@ -2,21 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* fonts imports */
 @font-face {
     font-family: 'Amulya';
     src: url('../fonts/Amulya-Variable.ttf');
 }
-
 @font-face {
     font-family: 'Synonym';
     src: url('../fonts/Synonym-Variable.ttf');
 }
 
+/* hide scrollbars class */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* fonts classes */
 .amulya {
     font-family: 'Amulya';
     color: #DFDFDF;
 }
-
 .synonym {
     font-family: 'Synonym';
     color: #DFDFDF;

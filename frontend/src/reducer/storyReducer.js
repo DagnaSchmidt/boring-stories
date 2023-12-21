@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const storySlice = createSlice({
     name: 'story',
     initialState: {
-        active: 'none',
+        active: '1',
         new: [{}, {}, {}],
         all: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
         details: {}
@@ -13,6 +13,12 @@ const storySlice = createSlice({
             return {
                 ...state,
                 new: action.payload
+            }
+        },
+        updateReducerActiveStory(state, action) {
+            return {
+                ...state,
+                active: action.payload
             }
         }
     }
@@ -24,5 +30,11 @@ export const getNewStories = () => {
     }
 }
 
-export const { updateReducerNewStories } = storySlice.actions;
+export const changeActiveStory = (id) => {
+    return dispatch => {
+        dispatch(updateReducerActiveStory(id));
+    }
+}
+
+export const { updateReducerNewStories, updateReducerActiveStory } = storySlice.actions;
 export default storySlice.reducer;

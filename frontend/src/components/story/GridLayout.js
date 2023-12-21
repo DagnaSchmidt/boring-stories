@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { switchSelected, toggleMenu } from '../../reducer/menuReducer';
+import StoryPrev from './StoryPrev';
 
 
 const GridLayout = () => {
@@ -12,7 +13,7 @@ const GridLayout = () => {
     const dispatch = useDispatch();
 
 
-    // const newStories = useSelector(state => state.story.new);
+    const newStories = useSelector(state => state.story.new);
     // const allStories = useSelector(state => state.story.all);
 
   return (
@@ -28,7 +29,7 @@ const GridLayout = () => {
               exit={{
                 width: '0'
               }}
-              className='absolute md:static top-14 right-0 bg-red-700 opacity-40 h-[90%] md:h-full xl:min-w-[280px] z-20 overflow-scroll justify-self-end flex flex-col items-center'
+              className='absolute md:static top-14 right-0 h-[90%] md:h-full xl:min-w-[280px] z-20 overflow-scroll justify-self-end flex flex-col items-center scrollbar-hide'
             >
 
               <button className='ml-12 self-start md:ml-6 md:mt-6' onClick={() => dispatch(switchSelected('none'))}>
@@ -37,9 +38,12 @@ const GridLayout = () => {
                   </p>
               </button>
 
-              <div onClick={() => dispatch(toggleMenu())} className='w-24 h-24 bg-slate-200 opacity-25'>
-                STORY
+              <div className='h-full flex flex-col justify-between py-11 bg-primary'>
+                  {
+                    newStories.map(i => <StoryPrev />)
+                  }
               </div>
+
 
             </motion.div>
         }
