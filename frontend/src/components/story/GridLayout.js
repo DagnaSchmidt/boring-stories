@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { switchSelected, toggleMenu } from '../../reducer/menuReducer';
+import StoryPrev from './StoryPrev';
 
 
 const GridLayout = () => {
@@ -12,7 +13,7 @@ const GridLayout = () => {
     const dispatch = useDispatch();
 
 
-    // const newStories = useSelector(state => state.story.new);
+    const newStories = useSelector(state => state.story.new);
     // const allStories = useSelector(state => state.story.all);
 
   return (
@@ -37,9 +38,9 @@ const GridLayout = () => {
                   </p>
               </button>
 
-              <div onClick={() => dispatch(toggleMenu())} className='w-24 h-24 bg-slate-200 opacity-25'>
-                STORY
-              </div>
+              {
+                newStories.map(i => <StoryPrev />)
+              }
 
             </motion.div>
         }
