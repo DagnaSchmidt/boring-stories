@@ -6,12 +6,13 @@ const HeroSection = () => {
     const menu = useSelector(state => state.menu);
     const story = useSelector(state => state.story);
     console.log(menu);
+    console.log(story);
 
     const deviceWidth = window.innerWidth;
 
   return (
     <AnimatePresence>
-        {((!menu.open && story.active === 'none') || (menu.open && menu.selected === 'none' && deviceWidth > 767 && story.active === 'none') || (menu.open && menu.selected !== 'none' && deviceWidth > 1280 && story.active === 'none')) &&
+        {((!menu.open && !story.active) || (menu.open && menu.selected === 'none' && deviceWidth > 767 && !story.active) || (menu.open && menu.selected !== 'none' && deviceWidth > 1279 && !story.active)) &&
             <motion.div
                 className='flex flex-col w-full pt-44 md:pt-52'
                 initial={false}

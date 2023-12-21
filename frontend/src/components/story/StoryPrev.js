@@ -1,20 +1,20 @@
 import React from 'react';
+import {useDispatch } from 'react-redux';
 
-const StoryPrev = () => {
-    const story = {
-        id: 1,
-        createdAt: '12 04 2023',
-        title: 'Oslo',
-        prevImg: 'prev1.png',
-        altText: ''
-    }
+import { changeActiveStory } from '../../reducer/storyReducer';
+
+const StoryPrev = ({data}) => {
+    const { createdAt, title, prevImg, altText} = data;
+    const dispatch = useDispatch();
 
   return (
-    <div className='w-44 h-40 border-4 border-secondary flex flex-col justify-between'>
-        <img src={require(`../../images/${story.prevImg}`)} alt={story.altText} className='grayscale hover:grayscale-0' />
+    <div className='w-52 h-44 border-4 border-secondary flex flex-col justify-between'>
+        <button onClick={() => dispatch(changeActiveStory())} className='w-full'>
+            <img src={require(`../../images/${prevImg}`)} alt={altText} className='grayscale hover:grayscale-0' />
+        </button>
         <div className='flex justify-between items-end px-1 pb-1'>
-            <p className='amulya text-base font-medium'>{story.title}</p>
-            <p className='amulya text-sm'>{story.createdAt}</p>
+            <p className='amulya text-base font-medium'>{title}</p>
+            <p className='amulya text-sm'>{createdAt}</p>
         </div>
     </div>
   )
