@@ -6,6 +6,7 @@ const HeroSection = () => {
     const menu = useSelector(state => state.menu);
     const story = useSelector(state => state.story);
     console.log(menu);
+    console.log(story);
 
     const deviceWidth = window.innerWidth;
 

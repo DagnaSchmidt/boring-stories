@@ -32,7 +32,10 @@ const storySlice = createSlice({
             createdAt: '12 04 2023',
             title: 'Oslo',
             prevImg: 'prev1.png',
-            altText: ''
+            altText: '',
+            description: 'Some long boring description about this story',
+            images: [],
+            hashtags: ['norway', 'trips_from_the_past', 'oslo']
         }
     },
     reducers: {
@@ -42,11 +45,11 @@ const storySlice = createSlice({
                 new: action.payload
             }
         },
-        updateReducerActiveStory(state, action) {
+        updateReducerActiveStory(state) {
             return {
                 ...state,
                 active: true,
-                details: action.payload
+                // details: action.payload
             }
         },
         closeReducerActiveStory(state) {
