@@ -55,8 +55,13 @@ const storySlice = createSlice({
         closeReducerActiveStory(state) {
             return {
                 ...state,
-                active: false,
-                details: {}
+                active: false
+            }
+        },
+        clearReducerActiveStoryDetails(state) {
+            return {
+                ...state,
+                details : {}
             }
         }
     }
@@ -84,5 +89,11 @@ export const closeActiveStory = () => {
     }
 }
 
-export const { updateReducerNewStories, updateReducerActiveStory, closeReducerActiveStory } = storySlice.actions;
+export const clearActiveStoryData = () => {
+    return dispatch => {
+        dispatch(clearReducerActiveStoryDetails());
+    }
+}
+
+export const { updateReducerNewStories, updateReducerActiveStory, closeReducerActiveStory, clearReducerActiveStoryDetails } = storySlice.actions;
 export default storySlice.reducer;
