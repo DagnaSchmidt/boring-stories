@@ -29,7 +29,7 @@ const MenuContainer = () => {
 
   return (
     <motion.div
-        className='bg-primary border-secondary border-4 relative flex justify-center items-center'
+        className='bg-primary border-secondary border-4 relative flex justify-center items-center max-w-[1200px] sm:max-w-[320px]'
         variants={variants}
         animate={menu.open ? 'isOpened' : 'isClosed'}
         initial='isClosed'
