@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
-import { closeActiveStory } from '../../reducer/storyReducer';
+import { closeActiveStory, clearActiveStoryData } from '../../reducer/storyReducer';
 
 const Story = () => {
     const dispatch = useDispatch();
@@ -10,9 +10,16 @@ const Story = () => {
     const story = useSelector(state => state.story);
     const { createdAt, title, description } = story.details;
 
+    const closeStory = () => {
+        dispatch(closeActiveStory());
+        setTimeout(function() {
+            dispatch(clearActiveStoryData());
+        }, 30000);
+    }
+
   return (
         <div className='w-full'>
-            <button onClick={() => dispatch(closeActiveStory())}>
+            <button onClick={closeStory}>
                 <h2 className='text-body pt-[22px] pb-[50px] hover:cursor-pointer font-medium tracking-tighter amulya'>
                     Boring Stories
                 </h2>
