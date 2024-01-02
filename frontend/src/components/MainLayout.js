@@ -27,8 +27,8 @@ const MainLayout = () => {
                         animate={{width: '100%'}}
                         exit={{width: 0}}
                         transition={{
-                            duration: 2,
-                            ease: 'easeOut',
+                            duration: 0.6,
+                            ease: 'easeInOut',
                             delay: 0.3
                         }}
                     >
@@ -45,8 +45,8 @@ const MainLayout = () => {
                         animate={{width: '100%'}}
                         exit={{width: 0}}
                         transition={{
-                            duration: 2,
-                            ease: 'easeOut',
+                            duration: 0.6,
+                            ease: 'easeInOut',
                             delay: 0.3
                         }}
                     >
