@@ -21,7 +21,7 @@ const Menu = () => {
     }
 
   return (
-    <ul className='w-full h-full flex flex-col justify-center align-middle gap-20'>
+    <ul className='h-full flex flex-col justify-center align-middle gap-20'>
         <li className={menu.selected === 'new' ? 'opacity-100' : 'opacity-50 hover:opacity-100'}>
             <button className='w-full' onClick={() => dispatch(switchSelected('new'))} disabled={menu.selected === 'new' && true}>
                 <p className='amulya text-center text-xl font-medium'>new stories</p>
@@ -41,7 +41,7 @@ const Menu = () => {
                 <p className='amulya text-center text-xl font-medium'>random story</p>
             </button>
         </li>
-            </ul>
+    </ul>
   )
 }
 

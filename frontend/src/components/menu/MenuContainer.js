@@ -1,60 +1,78 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { motion, useCycle } from 'framer-motion';
+import { useSelector } from 'react-redux';
+import { AnimatePresence, motion } from 'framer-motion';
 
 //components
 import Menu from './Menu';
-
-//actions
-import { toggleMenu } from '../../reducer/menuReducer';
+import MenuButton from './MenuButton';
 
 
 const MenuContainer = () => {
     const menu = useSelector(state => state.menu);
 
-    const dispatch = useDispatch();
-
-    const [open, cycleOpen] = useCycle(
-        {
-            width: '1%',
+    const variants = {
+        isClosed: {
+            marginTop: '32px',
             height: '1%',
-            minWidth: '0px',
-            maxWidth: '1px',
-            maxHeight: '1px',
-            marginTop: '32px'
+            width: '1%',
+            transition: {
+                ease: 'easeOut',
+                duration: 0.3,
+            }
         },
-        {
-            width: '100%',
+        isOpened: {
+            marginTop: '0px',
             height: '100%',
-            minWidth: '280px',
-            maxWidth: '1600px',
-            maxHeight: '2600px',
-            marginTop: '0'
+            width: '100%'
         }
-    )
+    }
 
   return (
     <motion.div
-        className='bg-primary border-secondary border-4 flex justify-center content-center relative'
-        initial={false}
-        animate={open}
-        transition={{
-            duration: 0.4
-        }}
-        layout
+        className='bg-primary border-secondary border-4 relative flex justify-center items-center'
+        variants={variants}
+        animate={menu.open ? 'isOpened' : 'isClosed'}
+        initial='isClosed'
     >
 
-        <motion.button
-            onTap={cycleOpen}
-            onClick={() =>dispatch(toggleMenu())}
-            className={`absolute ${menu.open ? 'top-4 right-4' : 'top-[-16px] right-4 w-28'}`}
-        >
-            <p className='synonym text-xl font-medium tracking-wider'>
-                {menu.open ? 'close' : menu.page === 'home' ? 'start here' : 'menu'}
-            </p>
-        </motion.button>
+        <MenuButton />
 
-        { menu.open && <Menu /> }
+        <AnimatePresence>
+
+            { menu.open &&
+
+                <motion.div
+                    initial={{
+                        scale: 0,
+                        width: 0,
+                        height: 0,
+                        minWidth: '0px'
+                    }}
+                    animate={{
+                        scale: 1,
+                        width: 0,
+                        height: '100%',
+                        minWidth: '280px'
+                    }}
+                    exit={{
+                        scale: 0,
+                        width: 0,
+                        height: 0,
+                        minWidth: '0px'
+                    }}
+                    transition={{
+                        duration: 0.3,
+                        ease: 'easeOut'
+                    }}
+                >
+
+                    <Menu/>
+
+                </motion.div>
+
+            }
+
+        </AnimatePresence>
 
     </motion.div>
   )
