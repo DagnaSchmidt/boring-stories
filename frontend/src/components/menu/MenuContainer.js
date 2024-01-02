@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, easeOut, motion } from 'framer-motion';
 
 //components
 import Menu from './Menu';
@@ -10,32 +10,49 @@ import MenuButton from './MenuButton';
 const MenuContainer = () => {
     const menu = useSelector(state => state.menu);
 
-    // const [open, cycleOpen] = useCycle(
-    //     {
-    //         width: '1%',
-    //         height: '1%',
-    //         minWidth: '0px',
-    //         maxWidth: '1px',
-    //         maxHeight: '1px',
-    //         marginTop: '32px'
-    //     },
-    //     {
-    //         width: '100%',
-    //         height: '100%',
-    //         minWidth: '280px',
-    //         maxWidth: '1600px',
-    //         maxHeight: '2600px',
-    //         marginTop: '0'
-    //     }
-    // )
-
   return (
-    <div className='bg-primary border-secondary border-4 flex justify-center content-center relative'>
+    <div className='bg-primary border-secondary border-4 relative self-start mt-[32px]'>
 
         <MenuButton />
 
         <AnimatePresence>
-            { menu.open && <Menu /> }
+
+            { menu.open &&
+
+                <motion.div
+                    initial={{
+                        scale: 0,
+                        width: 0,
+                        height: 0,
+                        minWidth: '0px',
+                        minHeight: '0vh'
+                    }}
+                    animate={{
+                        scale: 1,
+                        width: 0,
+                        height: 0,
+                        minWidth: '280px',
+                        minHeight: '100vh'
+                    }}
+                    exit={{
+                        scale: 0,
+                        width: 0,
+                        height: 0,
+                        minWidth: '0px',
+                        minHeight: '0vh'
+                    }}
+                    transition={{
+                        duration: 0.3,
+                        ease: easeOut
+                    }}
+                >
+
+                    <Menu/>
+
+                </motion.div>
+
+            }
+
         </AnimatePresence>
 
     </div>
