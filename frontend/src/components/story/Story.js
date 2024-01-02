@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
@@ -12,28 +11,21 @@ const Story = () => {
     const { createdAt, title, description } = story.details;
 
   return (
-    <AnimatePresence>
-        {story.active &&
-            <motion.div
-                className='w-full'
-            >
-                <button onClick={() => dispatch(closeActiveStory())}>
-                    <h2 className='text-body pt-[22px] pb-[50px] hover:cursor-pointer font-medium tracking-tighter amulya'>
-                        Boring Stories
-                    </h2>
-                </button>
+        <div className='w-full'>
+            <button onClick={() => dispatch(closeActiveStory())}>
+                <h2 className='text-body pt-[22px] pb-[50px] hover:cursor-pointer font-medium tracking-tighter amulya'>
+                    Boring Stories
+                </h2>
+            </button>
 
-                <div className='border-4 border-secondary w-full flex flex-col gap-8 px-4 py-8'>
-                    <div className='flex justify-between '>
-                        <p className='amulya text-base font-medium'>{title}</p>
-                        <p className='amulya text-sm'>{createdAt}</p>
-                    </div>
-                    <p className='amulya text-sm px-4'>{description}</p>
+            <div className='border-4 border-secondary w-full flex flex-col gap-8 px-4 py-8'>
+                <div className='flex justify-between '>
+                    <p className='amulya text-base font-medium'>{title}</p>
+                    <p className='amulya text-sm'>{createdAt}</p>
                 </div>
-
-            </motion.div>
-        }
-    </AnimatePresence>
+                <p className='amulya text-sm px-4'>{description}</p>
+            </div>
+        </div>
   )
 }
 
