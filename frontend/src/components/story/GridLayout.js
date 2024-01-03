@@ -76,6 +76,9 @@ const GridLayout = () => {
                                 }}
                                 layout
                             >
+
+                                <p className='amulya text-xs text-center font-thin tracking-widest'>scroll</p>
+
                                 {
                                     remainingStories.map(i => <StoryPrev key={i.id} data={i} />)
                                 }
