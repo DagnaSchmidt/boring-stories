@@ -18,19 +18,19 @@ const GridLayout = () => {
         {menu.selected !== 'none' &&
             <motion.div
               initial={{
-                width: '0'
+                width: '0%'
               }}
               animate={{
                 width: '100%'
               }}
               exit={{
-                width: '0'
+                width: '0%'
               }}
               transition={{
                 duration: 0.3,
                 ease: 'easeInOut'
             }}
-              className='absolute md:static top-14 right-0 h-[90%] md:h-full xl:min-w-[280px] z-20 overflow-scroll scrollbar-hide justify-self-end flex flex-col items-center'
+              className='absolute md:static top-14 right-0 h-[90%] md:h-full z-20 overflow-y-scroll overflow-x-hidden scrollbar-hide justify-self-end flex flex-col items-center'
             >
 
               <div className={`h-full flex flex-col py-11 bg-primary ${menu.selected === 'new' ? 'justify-between' : 'gap-12'}`}>
