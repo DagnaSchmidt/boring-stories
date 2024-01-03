@@ -34,7 +34,11 @@ const storySlice = createSlice({
             prevImg: 'prev1.png',
             altText: '',
             description: 'Some long boring description about this story',
-            images: [],
+            images: [
+                '1YBkYF6RHpc_Uy3RVLY0mreLAec3X5i-_',
+                '1UwjDUGwsfyIekMP6Z0xmtlOACjj5xdZf',
+                '1YdUujP2FNw8VR7dk1BxDy4auuMIm2MzU'
+            ],
             hashtags: ['norway', 'trips_from_the_past', 'oslo']
         }
     },
