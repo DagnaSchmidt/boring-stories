@@ -25,7 +25,7 @@ const Story = () => {
                 </h2>
             </button>
 
-            <div className='overflow-y-scroll h-full pb-12'>
+            <div className='overflow-y-scroll scrollbar-hide h-full pb-12'>
                 <div className='border-4 border-secondary w-full flex flex-col gap-8 px-4 py-8'>
                     <div className='flex justify-between '>
                         <p className='amulya text-base font-medium'>{title}</p>
@@ -34,9 +34,11 @@ const Story = () => {
                     <p className='amulya text-sm px-4'>{description}</p>
                 </div>
 
-                <div className='flex flex-col gap-4 py-24'>
+                <p className='amulya text-lg py-24 text-center font-bold tracking-widest'>scroll</p>
+
+                <div className='flex flex-col items-center gap-4 lg:gap-8 pb-24'>
                     {
-                        images.map((i, index) => <img key={index} src={`https://drive.google.com/uc?export=view&id=${i}`} alt={i} />)
+                        images.map((i, index) => <img className='w-full lg:max-h-[620px] lg:object-contain' key={index} src={`https://drive.google.com/uc?export=view&id=${i}`} alt={i} />)
                     }
                 </div>
             </div>
