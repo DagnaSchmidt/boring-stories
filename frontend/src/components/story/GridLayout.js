@@ -12,6 +12,23 @@ const GridLayout = () => {
     const newStories = allStories.slice(0,3);
     const remainingStories = allStories.slice(3);
 
+    const variants = {
+      new : {
+        justifyContent: 'space-between',
+        gap: '16px',
+        height: '100%',
+        transition: {
+          ease: 'easeOut',
+          duration: 0.3,
+      }
+      },
+      all: {
+        justifyContent: 'flex-start',
+        gap: '16px',
+        height: '100%'
+      }
+    }
+
 
   return (
     <AnimatePresence>
@@ -29,19 +46,42 @@ const GridLayout = () => {
               transition={{
                 duration: 0.3,
                 ease: 'easeInOut'
-            }}
-              className='absolute md:static top-14 right-0 h-[90%] md:h-full z-20 overflow-y-scroll overflow-x-hidden scrollbar-hide justify-self-end flex flex-col items-center'
+              }}
+              className='absolute md:static top-14 right-0 h-[90%] md:h-full z-20 overflow-y-scroll overflow-x-hidden scrollbar-hide justify-self-end flex flex-col items-center p-11 gap-4'
             >
 
-              <div className={`h-full flex flex-col py-11 bg-primary ${menu.selected === 'new' ? 'justify-between' : 'gap-12'}`}>
-                  {
-                    newStories.map(i => <StoryPrev key={i.id} data={i} />)
-                  }
-                  {
-                    menu.selected === 'all' &&
-                    remainingStories.map(i => <StoryPrev key={i.id} data={i} />)
-                  }
-              </div>
+                  <motion.div
+                      className='h-full flex flex-col'
+                      variants={variants}
+                      animate={menu.selected === 'all' ? 'all' : 'new'}
+                      initial='new'
+                      layout
+                  >
+                      {
+                        newStories.map(i => <StoryPrev key={i.id} data={i} />)
+                      }
+                  </motion.div>
+
+                  <AnimatePresence>
+                      {
+                        menu.selected === 'all' &&
+                            <motion.div
+                                className='h-full flex flex-col gap-4'
+                                initial={{paddingTop: '240px'}}
+                                animate={{paddingTop: '0px'}}
+                                exit={{paddingTop: '240px'}}
+                                transition={{
+                                  duration: 0.3,
+                                  ease: 'easeInOut'
+                                }}
+                                layout
+                            >
+                                {
+                                    remainingStories.map(i => <StoryPrev key={i.id} data={i} />)
+                                }
+                            </motion.div>
+                      }
+                  </AnimatePresence>
 
             </motion.div>
         }
