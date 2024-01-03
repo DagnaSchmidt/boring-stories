@@ -44,7 +44,7 @@ const Story = () => {
                     <p className='amulya text-sm px-4'>{description}</p>
                 </div>
 
-                <p className='amulya text-lg py-24 text-center font-bold tracking-widest'>scroll</p>
+                <p className='amulya text-body py-24 text-center font-thin tracking-widest'>scroll</p>
 
                 <div className='flex flex-col items-center gap-4 lg:gap-8 pb-24'>
                     {
