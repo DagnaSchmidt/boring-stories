@@ -4,7 +4,7 @@ const storySlice = createSlice({
     name: 'story',
     initialState: {
         active: false,
-        new: [
+        all: [
             {
                 id: 1,
                 createdAt: '12 04 2023',
@@ -25,8 +25,21 @@ const storySlice = createSlice({
                 title: 'Marstrand',
                 prevImg: 'prev1.png',
                 altText: ''
-        }],
-        all: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+            },
+            {
+                id: 4,
+                createdAt: '29 11 2020',
+                title: 'Marstrand',
+                prevImg: 'prev1.png',
+                altText: ''
+            },
+            {
+                id: 5,
+                createdAt: '29 11 2020',
+                title: 'Marstrand',
+                prevImg: 'prev1.png',
+                altText: ''
+            }],
         details: {
             id: 1,
             createdAt: '12 04 2023',
