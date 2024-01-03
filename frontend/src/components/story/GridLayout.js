@@ -2,19 +2,16 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { switchSelected } from '../../reducer/menuReducer';
 import StoryPrev from './StoryPrev';
 
 
 const GridLayout = () => {
     const menu = useSelector(state => state.menu);
-    // const story = useSelector(state => state.story);
+    const allStories = useSelector(state => state.story.all);
 
-    const dispatch = useDispatch();
+    const newStories = allStories.slice(0,3);
+    const remainingStories = allStories.slice(3);
 
-
-    const newStories = useSelector(state => state.story.new);
-    // const allStories = useSelector(state => state.story.all);
 
   return (
     <AnimatePresence>
@@ -29,21 +26,22 @@ const GridLayout = () => {
               exit={{
                 width: '0'
               }}
-              className='absolute md:static top-14 right-0 h-[90%] md:h-full xl:min-w-[280px] z-20 overflow-scroll justify-self-end flex flex-col items-center scrollbar-hide'
+              transition={{
+                duration: 0.3,
+                ease: 'easeInOut'
+            }}
+              className='absolute md:static top-14 right-0 h-[90%] md:h-full xl:min-w-[280px] z-20 overflow-scroll scrollbar-hide justify-self-end flex flex-col items-center'
             >
 
-              <button className='ml-12 self-start md:ml-6 md:mt-6' onClick={() => dispatch(switchSelected('none'))}>
-                  <p className='amulya text-lg font-medium'>
-                      return
-                  </p>
-              </button>
-
-              <div className='h-full flex flex-col justify-between py-11 bg-primary'>
+              <div className={`h-full flex flex-col py-11 bg-primary ${menu.selected === 'new' ? 'justify-between' : 'gap-12'}`}>
                   {
                     newStories.map(i => <StoryPrev key={i.id} data={i} />)
                   }
+                  {
+                    menu.selected === 'all' &&
+                    remainingStories.map(i => <StoryPrev key={i.id} data={i} />)
+                  }
               </div>
-
 
             </motion.div>
         }
