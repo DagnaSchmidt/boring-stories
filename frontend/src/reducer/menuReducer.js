@@ -5,8 +5,7 @@ const menuSlice = createSlice({
     initialState: {
         open: false,
         selected: 'none',
-        sort: 'date',
-        page: 'home'
+        sort: 'date'
     },
     reducers: {
         toggleReducerMenu(state, action) {

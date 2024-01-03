@@ -17,9 +17,9 @@ const MenuButton = () => {
         className={`absolute ${menu.open ? 'top-4 right-4' : 'top-[-16px] right-4 w-28'}`}
     >
 
-            <p className='synonym text-xl font-medium tracking-wider text-right'>
-                {menu.open ? 'close' : isStoryActive ? 'menu' : 'start here'}
-            </p>
+        <p className='synonym text-xl font-medium tracking-wider text-right'>
+            {menu.open ? 'close' : isStoryActive ? 'menu' : 'start here'}
+        </p>
 
     </button>
   )
