@@ -8,9 +8,14 @@ import SubMenu from './SubMenu';
 import { switchSelected, switchSort, closeMenu } from '../../reducer/menuReducer';
 import { updateReducerActiveStory } from '../../reducer/storyReducer';
 
+//hooks
+import useDeviceWidth from '../../hooks/useDeviceWidth';
+
 
 const Menu = () => {
     const menu = useSelector(state => state.menu);
+
+    const deviceWidth = useDeviceWidth();
 
     const dispatch = useDispatch();
 
@@ -38,14 +43,14 @@ const Menu = () => {
     }
 
   return (
-    <ul className='h-full flex flex-col justify-center align-middle gap-20'>
+    <ul className={`h-full flex ${(deviceWidth < 640 && menu.selected !== 'none') ? 'gap-1 pt-16 justify-center' : 'flex-col justify-center align-middle gap-20'}`}>
         <li className={menu.selected === 'new' ? 'opacity-100' : 'opacity-50 hover:opacity-100'}>
-            <button className='w-full' onClick={handleDisplayNew} >
+            <button className='w-full min-w-[140px]' onClick={handleDisplayNew} >
                 <p className='amulya text-center text-xl font-medium'>new stories</p>
             </button>
         </li>
         <li className={menu.selected === 'all' ? 'opacity-100' : 'opacity-50 hover:opacity-100'}>
-            <button className='w-full' onClick={handleDisplayAll} >
+            <button className='w-full min-w-[140px]' onClick={handleDisplayAll} >
                 <p className='amulya text-center text-xl font-medium' >all stories</p>
             </button>
             {
@@ -54,7 +59,7 @@ const Menu = () => {
             }
         </li>
         <li className='opacity-50 hover:opacity-100'>
-            <button className='w-full' onClick={handleDisplayRandomStory}>
+            <button className='w-full min-w-[140px]' onClick={handleDisplayRandomStory}>
                 <p className='amulya text-center text-xl font-medium'>random story</p>
             </button>
         </li>

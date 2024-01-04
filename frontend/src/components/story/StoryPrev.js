@@ -15,7 +15,7 @@ const StoryPrev = ({data}) => {
     }
 
   return (
-    <div className='w-52 border-4 border-secondary flex flex-col gap-2'>
+    <div className='w-52 border-4 border-secondary bg-primary flex flex-col gap-2'>
         <button onClick={openStory} className='w-full'>
             <img src={require(`../../images/${prevImg}`)} alt={altText} className='grayscale hover:grayscale-0 w-full h-32 object-cover' />
         </button>
