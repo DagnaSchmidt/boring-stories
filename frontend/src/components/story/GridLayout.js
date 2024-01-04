@@ -47,7 +47,7 @@ const GridLayout = () => {
                 duration: 0.3,
                 ease: 'easeInOut'
               }}
-              className='absolute md:static top-14 right-0 h-[90%] md:h-full z-20 overflow-y-scroll overflow-x-hidden scrollbar-hide justify-self-end flex flex-col items-center p-11 gap-4'
+              className='absolute sm:static top-40 sm:top-14 right-0 h-[83%] sm:h-[90%] md:h-full z-20 overflow-y-scroll overflow-x-hidden scrollbar-hide justify-self-end flex flex-col items-center p-11 gap-4'
             >
 
                   <motion.div

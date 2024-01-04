@@ -50,7 +50,7 @@ const MenuContainer = () => {
                     }}
                     animate={{
                         scale: 1,
-                        width: 0,
+                        width: '100%',
                         height: '100%',
                         minWidth: '280px'
                     }}
