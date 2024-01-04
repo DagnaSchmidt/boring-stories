@@ -6,12 +6,15 @@ import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import Story from './story/Story';
 import HeroSection from './HeroSection';
 
+//hooks
+import useDeviceWidth from '../hooks/useDeviceWidth';
+
 
 const MainLayout = () => {
     const menu = useSelector(state => state.menu);
     const story = useSelector(state => state.story);
 
-    const deviceWidth = window.innerWidth;
+    const deviceWidth = useDeviceWidth();
 
     if((menu.open && menu.selected === 'none' && deviceWidth < 767) || (menu.open && menu.selected !== 'none' && deviceWidth < 1279)){
         return null;
