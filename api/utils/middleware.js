@@ -1,6 +1,4 @@
-import { infoMessage, errorMessage } from "./logger";
-import { SECRET } from "./config";
-import jwt from "jsonwebtoken";
+import { infoMessage, errorMessage } from "./logger.js";
 
 export const requestLogger = (request, response, next) => {
     infoM('Method:', request.method)
@@ -13,5 +11,15 @@ export const requestLogger = (request, response, next) => {
 export const unknownEndpoint = (request, response) => {
     response.status(404).send({ error: 'unknown endpoint' });
 };
+
+export const errorHandler = (error, request, response, next) => {
+    errorMessage(error.message);
+    if(error.name === 'CastError'){
+        return response.status(400).send({ error: 'wrong format of id' });
+    }else if(error.name === 'ValidationError' || error.name === 'JsonWebTokenError'){
+        return response.status(400).json({ error: error.message });
+    }
+    next(error);
+  };
 
 //error handler
