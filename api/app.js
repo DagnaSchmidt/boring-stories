@@ -8,7 +8,7 @@ import mongoose from "mongoose";
 
 //controllers, middleware imports
 import { infoMessage } from "./utils/logger.js";
-import { unknownEndpoint } from "./utils/middleware.js";
+import { unknownEndpoint, errorHandler } from "./utils/middleware.js";
 import { storiesRouter } from "./controllers/stories.js";
 
 
@@ -32,6 +32,9 @@ app.use(cors());
 app.use(express.static('build'));
 app.use(express.json());
 
-//app use middleware
+//routes
 app.use('api/stories', storiesRouter);
+
+//middleware
 app.use(unknownEndpoint);
+app.use(errorHandler);

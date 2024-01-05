@@ -1,17 +1,23 @@
 import mongoose from 'mongoose';
+import mongooseUniqueValidator from 'mongoose-unique-validator';
 
 const storySchema = new mongoose.Schema({
     createdAt: {
         type: Date,
-        required: true
+        required: true,
+        default: Date.now
     },
     title: {
         type: String,
-        required: true
+        required: true,
+        minLength: 3,
+        maxLength: 20,
+        unique: true
     },
     prevImg: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     altText: {
         type: String,
@@ -24,8 +30,15 @@ const storySchema = new mongoose.Schema({
     images: {
         type: Array,
         required: true
+    },
+    localization: {
+        type: String,
+        required: true,
+        minLength: 2
     }
 });
+
+userSchema.plugin(mongooseUniqueValidator);
 
 storySchema.set('toJSON', {
     transform: (document, returnedObject) => {
