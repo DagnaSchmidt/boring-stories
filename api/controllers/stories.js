@@ -5,18 +5,30 @@ import Story from '../models/story';
 
 
 //get all stories main info
-blogsRouter.get('/', async (request, response) => {
-    const blogs = await Blog.find({});
-    response.json(blogs);
+storiesRouter.get('/', async (request, response) => {
+    const stories = await Story.find({});
+    //return partial info CHECK THIS!!!!!!!!!!!!!!!!!
+    response.json(stories);
 });
 
 
-//get one blog by id detailed info
-blogsRouter.get('/:id', async (request, response) => {
-    const blog = await Blog.findById(request.params.id);
-    if(blog) {
-      response.json(blog);
+//get one story by id detailed info
+storiesRouter.get('/:id', async (request, response) => {
+    const story = await Story.findById(request.params.id);
+    if(story) {
+      response.json(story);
     }else {
       response.status(404).end();
     }
 });
+
+
+//add one story
+storiesRouter.post('/', async (request, response) => {
+    const body = request.body;
+
+    const newStory = new Story({...body});
+    const savedStory = await newStory.save();
+
+    response.status(201).json(savedStory);
+})
