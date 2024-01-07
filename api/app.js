@@ -10,6 +10,7 @@ import mongoose from "mongoose";
 import { infoMessage } from "./utils/logger.js";
 import { unknownEndpoint, errorHandler } from "./utils/middleware.js";
 import { storiesRouter } from "./controllers/stories.js";
+import { usersRouter } from "./controllers/users.js";
 
 
 export const app = express();
@@ -34,6 +35,7 @@ app.use(express.json());
 
 //routes
 app.use('api/stories', storiesRouter);
+app.use('api/users', usersRouter);
 
 //middleware
 app.use(unknownEndpoint);

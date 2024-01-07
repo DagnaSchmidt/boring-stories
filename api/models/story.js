@@ -38,7 +38,7 @@ const storySchema = new mongoose.Schema({
     }
 });
 
-userSchema.plugin(mongooseUniqueValidator);
+storySchema.plugin(mongooseUniqueValidator);
 
 storySchema.set('toJSON', {
     transform: (document, returnedObject) => {
