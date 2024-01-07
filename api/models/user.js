@@ -1,46 +1,34 @@
 import mongoose from 'mongoose';
 import mongooseUniqueValidator from 'mongoose-unique-validator';
 
-const storySchema = new mongoose.Schema({
-    createdAt: {
-        type: Date,
+const userSchema = new mongoose.Schema({
+    type: {
+        type: String,
+        enum: ['admin', 'user'],
         required: true,
-        default: Date.now
+        default: 'user'
     },
-    title: {
+    username: {
         type: String,
         required: true,
         minLength: 3,
-        maxLength: 20,
         unique: true
     },
-    prevImg: {
+    email: {
         type: String,
         required: true,
         unique: true
     },
-    altText: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: Text,
-        required: true
-    },
-    images: {
-        type: Array,
-        required: true
-    },
-    localization: {
+    password: {
         type: String,
         required: true,
-        minLength: 2
+        minLength: 8
     }
 });
 
-storySchema.plugin(mongooseUniqueValidator);
+userSchema.plugin(mongooseUniqueValidator);
 
-storySchema.set('toJSON', {
+userSchema.set('toJSON', {
     transform: (document, returnedObject) => {
         returnedObject.id = returnedObject._id.toString();
         delete returnedObject._id;
@@ -48,5 +36,5 @@ storySchema.set('toJSON', {
     }
 });
 
-const Story = mongoose.model('Story', storySchema);
-export default Story;
+const User = mongoose.model('User', storySchema);
+export default User;
