@@ -27,6 +27,10 @@ storiesRouter.get('/:id', async (request, response) => {
 storiesRouter.post('/', async (request, response) => {
     const body = request.body;
 
+    if(!request.body.user){
+      return response.status(401).json({error: 'invalid token'});
+    }
+
     const newStory = new Story({...body});
     const savedStory = await newStory.save();
 
