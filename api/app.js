@@ -11,6 +11,7 @@ import { infoMessage } from "./utils/logger.js";
 import { unknownEndpoint, errorHandler } from "./utils/middleware.js";
 import { storiesRouter } from "./controllers/stories.js";
 import { usersRouter } from "./controllers/users.js";
+import { loginRouter } from "./controllers/login.js";
 
 
 export const app = express();
@@ -36,6 +37,7 @@ app.use(express.json());
 //routes
 app.use('api/stories', storiesRouter);
 app.use('api/users', usersRouter);
+app.use('api/login', loginRouter);
 
 //middleware
 app.use(unknownEndpoint);
