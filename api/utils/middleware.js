@@ -1,10 +1,10 @@
 import { infoMessage, errorMessage } from "./logger.js";
 
 export const requestLogger = (request, response, next) => {
-    infoM('Method:', request.method)
-    infoM('Path:  ', request.path)
-    infoM('Body:  ', request.body)
-    infoM('---')
+    infoMessage('Method:', request.method)
+    infoMessage('Path:  ', request.path)
+    infoMessage('Body:  ', request.body)
+    infoMessage('---')
     next()
 };
 
@@ -21,5 +21,29 @@ export const errorHandler = (error, request, response, next) => {
     }
     next(error);
   };
+
+export const tokenExtractor = (request, response, next) => {
+    const authorization = request.get('Authorization');
+    if(authorization && authorization.startsWith('Bearer ')){
+        request.body.token = authorization.replace('Bearer ', '');
+    }
+    next();
+};
+
+export const userExtractor = async (request, response, next) => {
+    if(request.body.token){
+        const decodedToken = jwt.verify(request.body.token, SECRET);
+        const foundUser = await User.findById(decodedToken.id.toString());
+        if(!foundUser){
+            return response.status(400).json({ error: 'user not found' });
+        }else{
+            request.body.user = {
+                "username": foundUser.username,
+                "id": foundUser.id
+            }
+        }
+    }
+    next();
+};
 
 //error handler
