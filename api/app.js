@@ -1,7 +1,7 @@
 import { MONGODB_URL } from "./utils/config.js";
 
 import express from 'express';
-import 'express-async-errors';
+// import 'express-async-errors';
 
 import cors from 'cors';
 import mongoose from "mongoose";
@@ -40,9 +40,9 @@ app.use(tokenExtractor);
 app.use(userExtractor);
 
 //routes
-app.use('api/stories', storiesRouter);
-app.use('api/users', usersRouter);
-app.use('api/login', loginRouter);
+app.use('/api/stories', storiesRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/login', loginRouter);
 
 //middleware
 app.use(unknownEndpoint);
