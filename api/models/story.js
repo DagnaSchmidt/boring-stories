@@ -25,6 +25,7 @@ const storySchema = new mongoose.Schema({
     },
     description: {
         type: Text,
+        minLength: 20,
         required: true
     },
     images: {

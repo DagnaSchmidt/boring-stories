@@ -27,12 +27,62 @@ storiesRouter.get('/:id', async (request, response) => {
 storiesRouter.post('/', async (request, response) => {
     const body = request.body;
 
+    //check this also
     if(!request.body.user){
       return response.status(401).json({error: 'invalid token'});
     }
+
+    //check if user type = admin
 
     const newStory = new Story({...body});
     const savedStory = await newStory.save();
 
     response.status(201).json(savedStory);
-})
+});
+
+
+//update story (change description)
+storiesRouter.put('/:id/description', async (request, response) => {
+  const body = request.body;
+  const storyToUpdate = await Story.findById(request.params.id);
+
+  //check this also //check if user type = admin
+  if(!request.body.user){
+    return response.status(401).json({error: 'invalid token'});
+  }
+
+  if(!storyToUpdate){
+    return response.status(400).json({error: 'invalid id'});
+  }else if(body.description.length < 20 || !body.description){
+    return response.status(400).json({error: 'description too short'});
+  }else{
+    const updatedStory = await Story.findByIdAndUpdate(request.params.id, {description: body.description});
+    response.status(201).json(updatedStory);
+  }
+
+});
+
+
+//add image to story
+storiesRouter.put('/:id/image', async (request, response) => {
+  const body = request.body;
+  const storyToUpdate = await Story.findById(request.params.id);
+
+  //check this also //check if user type = admin
+  if(!request.body.user){
+    return response.status(401).json({error: 'invalid token'});
+  }
+
+  if(!storyToUpdate){
+    return response.status(400).json({error: 'invalid id'});
+  }else if(body.image.length < 1 || !body.image){
+    return response.status(400).json({error: 'image id too short'});
+  }else{
+    const updatedStory = await Story.findByIdAndUpdate(request.params.id, {images: [...storyToUpdate.images, body.image]});
+    response.status(201).json(updatedStory);
+  }
+
+});
+
+
+//delete a story
