@@ -24,7 +24,7 @@ const storySchema = new mongoose.Schema({
         required: true
     },
     description: {
-        type: Text,
+        type: String,
         minLength: 20,
         required: true
     },

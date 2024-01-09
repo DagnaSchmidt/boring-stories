@@ -1,6 +1,6 @@
-import express, { request } from 'express';
+import express from 'express';
 export const storiesRouter = express.Router();
-import Story from '../models/story';
+import Story from '../models/story.js';
 
 
 

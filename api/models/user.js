@@ -34,5 +34,5 @@ userSchema.set('toJSON', {
     }
 });
 
-const User = mongoose.model('User', storySchema);
+const User = mongoose.model('User', userSchema);
 export default User;

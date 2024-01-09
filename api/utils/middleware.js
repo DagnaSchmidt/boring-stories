@@ -1,4 +1,5 @@
 import { infoMessage, errorMessage } from "./logger.js";
+import User from "../models/user.js";
 
 export const requestLogger = (request, response, next) => {
     infoMessage('Method:', request.method)
