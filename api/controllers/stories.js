@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { request } from 'express';
 export const storiesRouter = express.Router();
 import Story from '../models/story';
 
@@ -86,3 +86,15 @@ storiesRouter.put('/:id/image', async (request, response) => {
 
 
 //delete a story
+storiesRouter.delete('/:id', async (request, response) => {
+  const storyToDelete = await Story.findById(request.params.id);
+
+  //check if user type = admin
+  if(!storyToDelete){
+    return response.status(400).json({error: 'invalid id'});
+  }else{
+    const deletedStory = await Story.findByIdAndDelete(request.params.id);
+    request.status(204).end();
+  }
+
+})
