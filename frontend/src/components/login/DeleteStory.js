@@ -6,7 +6,7 @@ const DeleteStory = () => {
 
   return (
     <div>
-      <h5 className='text-xl font-medium tracking-tighter amulya'>Delete Story</h5>
+      <h5 className='text-xl font-medium tracking-tighter amulya pb-4'>Delete Story</h5>
 
       <form>
         <select className='min-w-[320px] pb-1'>
@@ -16,7 +16,6 @@ const DeleteStory = () => {
           }
         </select>
       </form>
-
 
     </div>
   )

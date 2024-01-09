@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const EditStory = () => {
   const story = useSelector(state => state.story);
   const [storyToUpdate, setStoryToUpdate] = useState({
-    active: true,
+    active: false,
     description: '',
     id: 0
   });
