@@ -17,7 +17,7 @@ const AdminDashboard = () => {
 
 
   return (
-    <div className='bg-primary w-full h-screen flex flex-col justify-center items-center gap-8'>
+    <div className='bg-primary w-full min-h-screen flex flex-col lg:flex-row lg:justify-center items-center gap-8'>
         <button onClick={handleLogout}>
             <p className='synonym text-xl font-medium tracking-wider py-4'>logout</p>
         </button>
