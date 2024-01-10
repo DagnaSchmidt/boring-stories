@@ -22,5 +22,20 @@ const activeStorySlice = createSlice({
     }
 });
 
+export const setActiveStory = ({id}) => {
+    //get one story by id
+    const story = {};
+
+    return dispatch => {
+        dispatch(setReducerActiveStory(story));
+    }
+}
+
+export const clearActiveStory = () => {
+    return dispatch => {
+        dispatch(clearReducerActiveStory());
+    }
+}
+
 export const { setReducerActiveStory, clearReducerActiveStory } = activeStorySlice.actions;
 export default activeStorySlice.reducer;
