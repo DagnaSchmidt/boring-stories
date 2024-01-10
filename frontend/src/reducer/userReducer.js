@@ -18,18 +18,14 @@ const userSlice = createSlice({
     }
 });
 
-export const login = () => {
-    //login and get credentials
-    const newUser = {};
-
-    return dispatch => {
+export const login = (password) => {
+    return async dispatch => {
+        const newUser = await adminLogin(password);
         dispatch(setReducerUser(newUser));
     }
 }
 
 export const logout = () => {
-    //logout
-
     return dispatch => {
         dispatch(clearReducerUser());
     }
