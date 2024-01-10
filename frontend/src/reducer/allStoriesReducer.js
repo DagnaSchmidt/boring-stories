@@ -2,7 +2,41 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const allStoriesSlice = createSlice({
     name: 'allStories',
-    initialState: [],
+    initialState: [{
+        id: 1,
+        createdAt: '12 04 2023',
+        title: 'Oslo',
+        prevImg: 'prev1.png',
+        altText: ''
+    },
+    {
+        id: 2,
+        createdAt: '02 06 2021',
+        title: 'Hono',
+        prevImg: 'prev1.png',
+        altText: ''
+    },
+    {
+        id: 3,
+        createdAt: '29 11 2020',
+        title: 'Marstrand',
+        prevImg: 'prev1.png',
+        altText: ''
+    },
+    {
+        id: 4,
+        createdAt: '29 11 2020',
+        title: 'Marstrand',
+        prevImg: 'prev1.png',
+        altText: ''
+    },
+    {
+        id: 5,
+        createdAt: '29 11 2020',
+        title: 'Marstrand',
+        prevImg: 'prev1.png',
+        altText: ''
+    }],
     reducers: {
         setAllReducerStories(state, action) {
             return action.payload;
