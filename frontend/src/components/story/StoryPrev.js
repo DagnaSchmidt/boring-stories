@@ -1,16 +1,16 @@
 import React from 'react';
-import {useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 //actions
-import { changeActiveStory } from '../../reducer/storyReducer';
+import { setActiveStory } from '../../reducer/activeStoryReducer';
 import { closeMenu } from '../../reducer/menuReducer';
 
 const StoryPrev = ({data}) => {
-    const { createdAt, title, prevImg, altText} = data;
+    const { createdAt, title, prevImg, altText } = data;
     const dispatch = useDispatch();
 
     const openStory = () => {
-      dispatch(changeActiveStory());
+      dispatch(setActiveStory());
       dispatch(closeMenu());
     }
 

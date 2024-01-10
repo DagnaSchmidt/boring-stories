@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 const EditStory = () => {
   const story = useSelector(state => state.story);
+  // eslint-disable-next-line
   const [storyToUpdate, setStoryToUpdate] = useState({
     active: false,
     description: '',

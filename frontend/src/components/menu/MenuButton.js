@@ -6,7 +6,7 @@ import { toggleMenu } from '../../reducer/menuReducer';
 
 const MenuButton = () => {
     const menu = useSelector(state => state.menu);
-    const isStoryActive = useSelector(state => state.story.active);
+    const isStoryActive = useSelector(state => state.activeStory.active);
 
     const dispatch = useDispatch();
 

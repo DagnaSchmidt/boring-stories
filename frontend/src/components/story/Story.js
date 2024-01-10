@@ -1,21 +1,14 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
-import { closeActiveStory, clearActiveStoryData } from '../../reducer/storyReducer';
+import { clearActiveStory } from '../../reducer/activeStoryReducer';
 
 const Story = () => {
     const dispatch = useDispatch();
 
-    const story = useSelector(state => state.story);
+    const story = useSelector(state => state.activeStory);
     const { createdAt, title, description, images } = story.details;
-
-    const closeStory = () => {
-        dispatch(closeActiveStory());
-        setTimeout(function() {
-            dispatch(clearActiveStoryData());
-        }, 30000);
-    }
 
     const scrollRef = useRef(null);
 
@@ -25,7 +18,7 @@ const Story = () => {
 
   return (
         <div className='w-full h-full relative'>
-            <button onClick={closeStory}>
+            <button onClick={() => dispatch(clearActiveStory())}>
                 <h2 className='text-body pt-[22px] pb-[50px] hover:cursor-pointer font-medium tracking-tighter amulya'>
                     Boring Stories
                 </h2>
