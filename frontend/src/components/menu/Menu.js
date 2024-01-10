@@ -6,7 +6,7 @@ import SubMenu from './SubMenu';
 
 //actions
 import { switchSelected, switchSort, closeMenu } from '../../reducer/menuReducer';
-import { updateReducerActiveStory } from '../../reducer/storyReducer';
+import { setActiveStory } from '../../reducer/activeStoryReducer';
 
 //hooks
 import useDeviceWidth from '../../hooks/useDeviceWidth';
@@ -21,7 +21,7 @@ const Menu = () => {
 
     const handleDisplayRandomStory = () => {
         dispatch(closeMenu());
-        dispatch(updateReducerActiveStory());
+        dispatch(setActiveStory());
         dispatch(switchSelected('none'));
         dispatch(switchSort('date'));
     }

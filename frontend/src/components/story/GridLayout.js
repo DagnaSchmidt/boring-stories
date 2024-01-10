@@ -7,7 +7,7 @@ import StoryPrev from './StoryPrev';
 
 const GridLayout = () => {
     const menu = useSelector(state => state.menu);
-    const allStories = useSelector(state => state.story.all);
+    const allStories = useSelector(state => state.allStories);
 
     const newStories = allStories.slice(0,3);
     const remainingStories = allStories.slice(3);

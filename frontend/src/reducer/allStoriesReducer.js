@@ -100,6 +100,7 @@ export const addStoryImages = (storyImages) => {
 
 export const deleteStory = (id) => {
     //delete story
+    // eslint-disable-next-line
     const deletedStory = {};
 
     return dispatch => {

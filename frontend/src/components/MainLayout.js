@@ -12,7 +12,7 @@ import useDeviceWidth from '../hooks/useDeviceWidth';
 
 const MainLayout = () => {
     const menu = useSelector(state => state.menu);
-    const story = useSelector(state => state.story);
+    const activeStory = useSelector(state => state.activeStory.active);
 
     const deviceWidth = useDeviceWidth();
 
@@ -23,7 +23,7 @@ const MainLayout = () => {
     return (
         <LayoutGroup>
             <AnimatePresence>
-                {story.active &&
+                {activeStory &&
                     <motion.div
                         className='overflow-hidden'
                         initial={{width: 0}}
@@ -41,7 +41,7 @@ const MainLayout = () => {
             </AnimatePresence>
 
             <AnimatePresence>
-                {!story.active &&
+                {!activeStory &&
                     <motion.div
                         className='overflow-hidden'
                         initial={{width: 0}}
