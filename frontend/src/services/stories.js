@@ -29,25 +29,25 @@ export const createNewStory = async (data) => {
     return response.data;
 };
 
-export const updateStoryDescription = async (data) => {
+export const updateStoryDescription = async (id, data) => {
     const config = {
         headers: {
           Authorization: token
         },
       };
 
-    const response = await axios.put(`${baseUrl}/${data.id}/description`, data.description, config);
+    const response = await axios.put(`${baseUrl}/${id}/description`, data, config);
     return response.data;
 };
 
-export const updateStoryImages = async (data) => {
+export const updateStoryImages = async (id, data) => {
     const config = {
         headers: {
           Authorization: token
         },
       };
 
-    const response = await axios.put(`${baseUrl}/${data.id}/images`, data.description, config);
+    const response = await axios.put(`${baseUrl}/${id}/images`, data, config);
     return response.data;
 };
 

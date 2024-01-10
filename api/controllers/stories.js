@@ -64,7 +64,7 @@ storiesRouter.put('/:id/description', async (request, response) => {
 
 
 //add image to story
-storiesRouter.put('/:id/image', async (request, response) => {
+storiesRouter.put('/:id/images', async (request, response) => {
   const body = request.body;
   const storyToUpdate = await Story.findById(request.params.id);
 

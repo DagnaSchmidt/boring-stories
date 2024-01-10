@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+//services
+import { getAllStories, createNewStory, updateStoryDescription, updateStoryImages, deleteOneStory } from '../services/stories';
+
 const allStoriesSlice = createSlice({
     name: 'allStories',
     initialState: [{
@@ -63,50 +66,40 @@ const allStoriesSlice = createSlice({
 
 
 export const setAllStories = () => {
-    //get all stories
-    const allStories = [];
-
-    return dispatch => {
+    return async dispatch => {
+        const allStories = await getAllStories();
         dispatch(setAllReducerStories(allStories));
     }
-}
+};
 
 export const addStory = (storyContent) => {
-    //post new story
-    const newStory = {};
-
-    return dispatch => {
+    return async dispatch => {
+        const newStory = await createNewStory(storyContent);
         dispatch(addReducerStory(newStory));
     }
-}
+};
 
-export const editStoryDescription = (storyDescription) => {
-    //put story
-    const updatedStory = {};
-
-    return dispatch => {
+export const editStoryDescription = (id, storyDescription) => {
+    return async dispatch => {
+        const updatedStory = await updateStoryDescription(id, storyDescription);
         dispatch(editReducerStory(updatedStory));
     }
-}
+};
 
-export const addStoryImages = (storyImages) => {
-    //put story
-    const updatedStory = {};
-
-    return dispatch => {
+export const addStoryImages = (id, storyImages) => {
+    return async dispatch => {
+        const updatedStory = await updateStoryImages(id, storyImages);
         dispatch(editReducerStory(updatedStory));
     }
-}
+};
 
 export const deleteStory = (id) => {
-    //delete story
-    // eslint-disable-next-line
-    const deletedStory = {};
-
-    return dispatch => {
+    return async dispatch => {
+        // eslint-disable-next-line
+        const deletedStory = await deleteOneStory(id);
         dispatch(deleteReducerStory(id));
     }
-}
+};
 
 export const { setAllReducerStories, addReducerStory, editReducerStory, deleteReducerStory } = allStoriesSlice.actions;
 export default allStoriesSlice.reducer;
