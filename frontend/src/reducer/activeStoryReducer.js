@@ -26,10 +26,10 @@ const activeStorySlice = createSlice({
                 details: action.payload
             }
         },
-        clearReducerActiveStory(state, action) {
+        clearReducerActiveStory(state) {
             return {
-                active: false,
-                ...state
+                ...state,
+                active: false
             }
         }
     }

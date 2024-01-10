@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
@@ -8,7 +8,6 @@ const Story = () => {
     const dispatch = useDispatch();
 
     const story = useSelector(state => state.activeStory);
-    console.log(story);
     const { createdAt, title, description, images } = story.details;
 
     const scrollRef = useRef(null);
