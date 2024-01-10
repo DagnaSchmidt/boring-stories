@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 //services
 import { adminLogin } from '../services/login';
+import { setToken } from '../services/stories';
 
 const userSlice = createSlice({
     name: 'user',
@@ -21,6 +22,7 @@ const userSlice = createSlice({
 export const login = (password) => {
     return async dispatch => {
         const newUser = await adminLogin(password);
+        setToken(newUser.token);
         dispatch(setReducerUser(newUser));
     }
 }

@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+//actions
+import { addReducerStory } from '../../reducer/allStoriesReducer';
 
 const AddStory = () => {
+  const [formData, setFormData] = useState({
+    title: '',
+    prevImg: '',
+    altText: '',
+    localization: '',
+    description: '',
+    images: []
+  });
+
+
   return (
     <div className='flex flex-col'>
       <h5 className='text-xl font-medium tracking-tighter amulya pb-4'>Add Story</h5>
