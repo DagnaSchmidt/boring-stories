@@ -14,16 +14,26 @@ import useDeviceWidth from '../../hooks/useDeviceWidth';
 
 const Menu = () => {
     const menu = useSelector(state => state.menu);
+    const allStories = useSelector(state => state.allStories);
+    const amountOfStories = allStories.length;
 
     const deviceWidth = useDeviceWidth();
 
     const dispatch = useDispatch();
 
     const handleDisplayRandomStory = () => {
-        dispatch(closeMenu());
-        dispatch(setActiveStory());
-        dispatch(switchSelected('none'));
-        dispatch(switchSort('date'));
+        const randomNumber = Math.floor(Math.random() * amountOfStories);
+        const randomStoryId = allStories[randomNumber].id;
+
+        try {
+            dispatch(setActiveStory(randomStoryId));
+            dispatch(closeMenu());
+            dispatch(switchSelected('none'));
+            dispatch(switchSort('date'));
+        } catch (exception) {
+            //error handling here!!
+            console.log('error');
+        }
     }
 
     const handleDisplayNew = () => {
