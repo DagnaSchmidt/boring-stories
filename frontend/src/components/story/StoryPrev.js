@@ -21,7 +21,7 @@ const StoryPrev = ({data}) => {
         </button>
         <div className='flex justify-between items-end px-1 pb-1'>
             <p className='amulya text-base font-medium'>{title}</p>
-            <p className='amulya text-sm'>{createdAt}</p>
+            <p className='amulya text-sm'>{createdAt.slice(0,10)}</p>
         </div>
     </div>
   )

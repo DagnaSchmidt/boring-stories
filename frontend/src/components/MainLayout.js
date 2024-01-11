@@ -14,6 +14,9 @@ const MainLayout = () => {
     const menu = useSelector(state => state.menu);
     const activeStory = useSelector(state => state.activeStory.active);
 
+    const allStories = useSelector(state => state.allStories);
+    console.log(allStories);
+
     const deviceWidth = useDeviceWidth();
 
     if((menu.open && menu.selected === 'none' && deviceWidth < 767) || (menu.open && menu.selected !== 'none' && deviceWidth < 1279)){
