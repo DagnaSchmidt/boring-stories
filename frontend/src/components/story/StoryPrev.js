@@ -6,11 +6,12 @@ import { setActiveStory } from '../../reducer/activeStoryReducer';
 import { closeMenu } from '../../reducer/menuReducer';
 
 const StoryPrev = ({data}) => {
-    const { createdAt, title, prevImg, altText } = data;
+    const { createdAt, title, prevImg, altText, id } = data;
+    console.log(id);
     const dispatch = useDispatch();
 
     const openStory = () => {
-      dispatch(setActiveStory());
+      dispatch(setActiveStory(id));
       dispatch(closeMenu());
     }
 
