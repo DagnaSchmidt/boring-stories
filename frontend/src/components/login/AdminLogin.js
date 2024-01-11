@@ -16,7 +16,7 @@ const AdminLogin = () => {
     e.preventDefault();
 
     try {
-      dispatch(login(password));
+      dispatch(login({"password": password}));
       setPassword('');
       navigate('/admin/dashboard');
     } catch (exception) {
