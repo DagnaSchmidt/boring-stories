@@ -16,12 +16,14 @@ const AdminDashboard = () => {
     const dispatch = useDispatch();
     const admin = useSelector(state => state.user);
 
-    useEffect(() => {
-      if(admin === null){
-        navigate('/');
-      }
-      // eslint-disable-next-line
-    }, [admin]);
+    // useEffect(() => {
+    //   if(admin === null){
+    //     navigate('/');
+    //   }
+    //   // eslint-disable-next-line
+    // }, []);
+
+    console.log(admin);
 
 
     const handleLogout = () => {

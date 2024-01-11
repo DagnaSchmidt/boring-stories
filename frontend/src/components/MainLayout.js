@@ -13,7 +13,6 @@ import useDeviceWidth from '../hooks/useDeviceWidth';
 const MainLayout = () => {
     const menu = useSelector(state => state.menu);
     const activeStory = useSelector(state => state.activeStory.active);
-    console.log(activeStory);
 
     const deviceWidth = useDeviceWidth();
 
