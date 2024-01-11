@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const DeleteStory = () => {
-  const story = useSelector(state => state.story);
+  const stories = useSelector(state => state.allStories);
 
   return (
     <div>
@@ -12,7 +12,7 @@ const DeleteStory = () => {
         <select className='min-w-[320px] pb-1'>
           <option value=''>choose story</option>
           {
-            story.all.map(i => <option value={i.id} key={i.id}>{i.id}, {i.title}</option>)
+            stories.map(i => <option value={i.id} key={i.id}>{i.id}, {i.title}</option>)
           }
         </select>
       </form>
