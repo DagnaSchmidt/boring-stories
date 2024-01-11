@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = '/api/stories';
+const baseUrl = 'api/stories';
 
 let token = null;
 

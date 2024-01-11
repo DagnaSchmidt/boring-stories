@@ -23,7 +23,7 @@ function App() {
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/admin' element={<AdminLogin />} />
-      <Route path='/admin/dashboard' element={<AdminDashboard />} />
+      <Route path='/dashboard' element={<AdminDashboard />} />
     </Routes>
   );
 }

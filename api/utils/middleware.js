@@ -1,5 +1,7 @@
 import { infoMessage, errorMessage } from "./logger.js";
+import { SECRET } from '../utils/config.js';
 import User from "../models/user.js";
+import jwt from "jsonwebtoken";
 
 export const requestLogger = (request, response, next) => {
     infoMessage('Method:', request.method)

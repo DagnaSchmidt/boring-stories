@@ -18,7 +18,7 @@ const AdminLogin = () => {
     try {
       dispatch(login({"password": password}));
       setPassword('');
-      navigate('/admin/dashboard');
+      navigate('/dashboard');
     } catch (exception) {
       //error handling here!!
       console.log('wrong credentials');
