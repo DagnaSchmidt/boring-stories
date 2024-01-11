@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+//actions
+import { login } from '../../reducer/userReducer.js'
+import { useDispatch } from 'react-redux';
+
 
 const AdminLogin = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [password, setPassword] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    //login backend functions
-    navigate('/admin/dashboard');
+    try {
+      dispatch(login({"password": password}));
+      setPassword('');
+      navigate('/dashboard');
+    } catch (exception) {
+      //error handling here!!
+      console.log('wrong credentials');
+    }
   }
 
 

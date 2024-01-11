@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 //components
 import AddStory from './AddStory';
 import EditStory from './EditStory';
 import DeleteStory from './DeleteStory';
 
+//actions
+import { logout } from '../../reducer/userReducer';
+
+
 const AdminDashboard = () => {
     const navigate = useNavigate();
-    //display only after login
+    const dispatch = useDispatch();
+    const admin = useSelector(state => state.user);
+
+    // useEffect(() => {
+    //   if(admin === null){
+    //     navigate('/');
+    //   }
+    //   // eslint-disable-next-line
+    // }, []);
+
+    console.log(admin);
+
 
     const handleLogout = () => {
-        //backend logout functions
+        dispatch(logout());
         navigate('/');
     }
 

@@ -1,7 +1,9 @@
 import axios from 'axios';
-const baseUrl = '/api/login';
+const baseUrl = 'api/login';
 
-export const login = async credentials => {
-  const response = await axios.post(baseUrl, credentials);
+
+//login only for admin
+export const adminLogin = async password => {
+  const response = await axios.post(`${baseUrl}/admin`, password);
   return response.data;
 };

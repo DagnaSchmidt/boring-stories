@@ -32,7 +32,7 @@ const Story = () => {
                 <div className='border-4 border-secondary w-full flex flex-col gap-8 px-4 py-8'>
                     <div className='flex justify-between '>
                         <p className='amulya text-base font-medium'>{title}</p>
-                        <p className='amulya text-sm'>{createdAt}</p>
+                        <p className='amulya text-sm'>{createdAt.slice(0,10)}</p>
                     </div>
                     <p className='amulya text-sm px-4'>{description}</p>
                 </div>
@@ -41,12 +41,10 @@ const Story = () => {
 
                 <div className='flex flex-col items-center gap-4 lg:gap-8 pb-24'>
                     {
-                        images.map((i, index) => <img className='w-full lg:max-h-[620px] lg:object-contain' key={index} src={`https://drive.google.com/uc?export=view&id=${i}`} alt={i} />)
+                        images.map((i, index) => <img className='w-full lg:max-h-[620px] lg:object-contain' key={index} src={`https://lh3.google.com/u/0/d/${i}`} alt={i} />)
                     }
                 </div>
-
             </div>
-
 
         </div>
   )

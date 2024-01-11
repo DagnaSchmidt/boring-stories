@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 const EditStory = () => {
-  const story = useSelector(state => state.story);
+  const stories = useSelector(state => state.allStories);
+
   // eslint-disable-next-line
   const [storyToUpdate, setStoryToUpdate] = useState({
     active: false,
@@ -18,7 +19,7 @@ const EditStory = () => {
         <select className='min-w-[320px] pb-1'>
           <option value=''>choose story</option>
           {
-            story.all.map(i => <option value={i.id} key={i.id}>{i.id}, {i.title}</option>)
+            stories.map(i => <option value={i.id} key={i.id}>{i.id}, {i.title}</option>)
           }
         </select>
       </form>
