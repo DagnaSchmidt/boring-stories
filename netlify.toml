@@ -1,5 +1,5 @@
 [functions]
-  external_node_modules = ["express", "dotenv"]
+  external_node_modules = ["express", "dotenv", "jsonwebtoken", "bcryptjs", "mongoose", "mongoose-unique-validator"]
   node_bundler = "esbuild"
 [[redirects]]
   force = true
