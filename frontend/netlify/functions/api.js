@@ -1,4 +1,4 @@
-import { MONGODB_URL } from '../../utils/config';
+import { MONGODB_URL } from '../../../api/utils/config.js';
 
 import express from 'express';
 import serverless from 'serverless-http';
@@ -6,11 +6,11 @@ import serverless from 'serverless-http';
 import cors from 'cors';
 import mongoose from "mongoose";
 
-import { infoMessage } from '../../utils/logger';
-import { unknownEndpoint, errorHandler, requestLogger, tokenExtractor, userExtractor } from "../../utils/middleware.js";
-import { storiesRouter } from "../../controllers/stories.js";
-import { usersRouter } from "../../controllers/users.js";
-import { loginRouter } from "../../controllers/login.js";
+import { infoMessage } from '../../../api/utils/logger.js';
+import { unknownEndpoint, errorHandler, requestLogger, tokenExtractor, userExtractor } from "../../../api/utils/middleware.js";
+import { storiesRouter } from "../../../api/controllers/stories.js";
+import { usersRouter } from "../../../api/controllers/users.js";
+import { loginRouter } from "../../../api/controllers/login.js";
 
 const app = express();
 
