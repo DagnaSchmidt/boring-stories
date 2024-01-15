@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
@@ -9,6 +9,16 @@ const EditStory = () => {
   const stories = useSelector(state => state.allStories);
   const storyToUpdate = useSelector(state => state.editStory);
 
+  const [formData, setFormData] = useState({
+    description: '',
+    images: ''
+  });
+
+  useEffect(() => {
+    setFormData({...formData, description: storyToUpdate.description});
+    // eslint-disable-next-line
+  }, [storyToUpdate]);
+
   const handleStoryChange = (e) => {
     try {
       dispatch(setEditStory(e.target.value));
@@ -16,7 +26,16 @@ const EditStory = () => {
         //error handling here!!
         console.log('error');
     }
-  }
+  };
+
+  const handleDescriptionChange = (e) => {
+
+  };
+
+  const handleAddImages = (e) => {
+
+  };
+
 
   return (
     <div className='flex flex-col gap-3'>
@@ -33,9 +52,9 @@ const EditStory = () => {
 
       {
         storyToUpdate &&
-        <form className='flex flex-col min-w-[320px] gap-2'>
+        <form className='flex flex-col min-w-[320px] gap-2' onSubmit={handleDescriptionChange}>
           <label className='amulya text-sm'>Edit description</label>
-          <textarea placeholder='description...' />
+          <textarea value={formData.description} onChange={(e) => setFormData({...formData, description: e.target.value})} placeholder='description...' />
           <button>
             <p className='synonym text-base font-medium tracking-wider'>submit</p>
           </button>
@@ -44,7 +63,7 @@ const EditStory = () => {
 
       {
         storyToUpdate &&
-        <form className='flex flex-col min-w-[320px] gap-2'>
+        <form className='flex flex-col min-w-[320px] gap-2' onSubmit={handleAddImages}>
           <label className='amulya text-sm'>Add images</label>
           <textarea placeholder='images...' />
           <button>
