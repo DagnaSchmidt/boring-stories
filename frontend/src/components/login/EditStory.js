@@ -1,31 +1,38 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+//actions
+import { setEditStory } from '../../reducer/editStoryReducer';
 
 const EditStory = () => {
+  const dispatch = useDispatch();
   const stories = useSelector(state => state.allStories);
+  const storyToUpdate = useSelector(state => state.editStory);
 
-  // eslint-disable-next-line
-  const [storyToUpdate, setStoryToUpdate] = useState({
-    active: false,
-    description: '',
-    id: 0
-  });
+  const handleStoryChange = (e) => {
+    try {
+      dispatch(setEditStory(e.target.value));
+    } catch (exception) {
+        //error handling here!!
+        console.log('error');
+    }
+  }
 
   return (
     <div className='flex flex-col gap-3'>
       <h5 className='text-xl font-medium tracking-tighter amulya pb-1'>Edit Story</h5>
 
       <form>
-        <select className='min-w-[320px] pb-1'>
+        <select onChange={handleStoryChange} className='min-w-[320px] pb-1'>
           <option value=''>choose story</option>
           {
-            stories.map(i => <option value={i.id} key={i.id}>{i.id}, {i.title}</option>)
+            stories.map(i => <option value={i.id} key={i.id}>{i.title}</option>)
           }
         </select>
       </form>
 
       {
-        storyToUpdate.active &&
+        storyToUpdate &&
         <form className='flex flex-col min-w-[320px] gap-2'>
           <label className='amulya text-sm'>Edit description</label>
           <textarea placeholder='description...' />
@@ -36,7 +43,7 @@ const EditStory = () => {
       }
 
       {
-        storyToUpdate.active &&
+        storyToUpdate &&
         <form className='flex flex-col min-w-[320px] gap-2'>
           <label className='amulya text-sm'>Add images</label>
           <textarea placeholder='images...' />
