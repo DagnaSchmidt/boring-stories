@@ -16,8 +16,6 @@ const AddStory = () => {
     images: ''
   });
 
-  console.log(formData);
-
   const handleSubmit = (e) => {
       e.preventDefault();
 

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
-import { setEditStory } from '../../reducer/editStoryReducer';
+import { setEditStory, editDescription } from '../../reducer/editStoryReducer';
+import { setAllStories } from '../../reducer/allStoriesReducer';
 
 const EditStory = () => {
   const dispatch = useDispatch();
@@ -14,8 +15,12 @@ const EditStory = () => {
     images: ''
   });
 
+  console.log(formData);
+
   useEffect(() => {
-    setFormData({...formData, description: storyToUpdate.description});
+    if(storyToUpdate !== null){
+      setFormData({...formData, description: storyToUpdate.description});
+    }
     // eslint-disable-next-line
   }, [storyToUpdate]);
 
@@ -28,8 +33,14 @@ const EditStory = () => {
     }
   };
 
-  const handleDescriptionChange = (e) => {
-
+  const handleDescriptionChange = () => {
+    try {
+      dispatch(editDescription(storyToUpdate.id, {description: formData.description}));
+      dispatch(setAllStories());
+    } catch (exception) {
+      //error handling here!!
+      console.log('error');
+    }
   };
 
   const handleAddImages = (e) => {
