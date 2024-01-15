@@ -33,7 +33,9 @@ const EditStory = () => {
     }
   };
 
-  const handleDescriptionChange = () => {
+  const handleDescriptionChange = (e) => {
+    e.preventDefault();
+
     try {
       dispatch(editDescription(storyToUpdate.id, {description: formData.description}));
       dispatch(setAllStories());
