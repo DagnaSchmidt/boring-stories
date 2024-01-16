@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { getOneStory, updateStoryDescription } from '../services/stories';
+import { getOneStory, updateStoryDescription, updateStoryImages } from '../services/stories';
 
 const editStorySlice = createSlice({
     name: 'editStory',
@@ -26,6 +26,14 @@ export const editDescription = (id, data) => {
     return async dispatch => {
         // eslint-disable-next-line
         const editedStory = await updateStoryDescription(id, data);
+        dispatch(setReducerEditStory(editedStory));
+    }
+};
+
+export const addImages = (id, data) => {
+    return async dispatch => {
+        // eslint-disable-next-line
+        const editedStory = await updateStoryImages(id, data);
         dispatch(setReducerEditStory(editedStory));
     }
 };

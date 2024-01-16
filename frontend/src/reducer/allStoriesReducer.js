@@ -7,54 +7,18 @@ const allStoriesSlice = createSlice({
     name: 'allStories',
     initialState: [{
         id: 1,
-        createdAt: '12 04 2023',
+        createdAt: '12-04-2023',
         title: 'Oslo',
         prevImg: 'prev1.png',
-        altText: ''
-    },
-    {
-        id: 2,
-        createdAt: '02 06 2021',
-        title: 'Hono',
-        prevImg: 'prev1.png',
-        altText: ''
-    },
-    {
-        id: 3,
-        createdAt: '29 11 2020',
-        title: 'Marstrand',
-        prevImg: 'prev1.png',
-        altText: ''
-    },
-    {
-        id: 4,
-        createdAt: '29 11 2020',
-        title: 'Marstrand',
-        prevImg: 'prev1.png',
-        altText: ''
-    },
-    {
-        id: 5,
-        createdAt: '29 11 2020',
-        title: 'Marstrand',
-        prevImg: 'prev1.png',
-        altText: ''
+        altText: 'buildings in Oslo'
     }],
     reducers: {
         setAllReducerStories(state, action) {
-            return action.payload;
+            const newState = action.payload.reverse();
+            return newState;
         },
         addReducerStory(state, action) {
-            return [...state, action.payload];
-        },
-        editReducerStory(state, action) {
-            const newState = state.map(i => {
-                if(i.id !== action.payload.id){
-                    return i;
-                }else{
-                    return action.payload;
-                }
-            });
+            const newState = state.unshift(action.payload);
             return newState;
         },
         deleteReducerStory(state, action) {
@@ -76,20 +40,6 @@ export const addStory = (storyContent) => {
     return async dispatch => {
         const newStory = await createNewStory(storyContent);
         dispatch(addReducerStory(newStory));
-    }
-};
-
-export const editStoryDescription = (id, storyDescription) => {
-    return async dispatch => {
-        const updatedStory = await updateStoryDescription(id, storyDescription);
-        dispatch(editReducerStory(updatedStory));
-    }
-};
-
-export const addStoryImages = (id, storyImages) => {
-    return async dispatch => {
-        const updatedStory = await updateStoryImages(id, storyImages);
-        dispatch(editReducerStory(updatedStory));
     }
 };
 

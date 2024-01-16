@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
-import { setEditStory, editDescription } from '../../reducer/editStoryReducer';
+import { setEditStory, editDescription, addImages } from '../../reducer/editStoryReducer';
 import { setAllStories } from '../../reducer/allStoriesReducer';
 
 const EditStory = () => {
@@ -14,8 +14,6 @@ const EditStory = () => {
     description: '',
     images: ''
   });
-
-  console.log(formData);
 
   useEffect(() => {
     if(storyToUpdate !== null){
@@ -39,6 +37,7 @@ const EditStory = () => {
     try {
       dispatch(editDescription(storyToUpdate.id, {description: formData.description}));
       dispatch(setAllStories());
+      window.alert(`${storyToUpdate.title} description changed!`);
     } catch (exception) {
       //error handling here!!
       console.log('error');
@@ -46,6 +45,18 @@ const EditStory = () => {
   };
 
   const handleAddImages = (e) => {
+    e.preventDefault();
+
+    const imagesArr = formData.images.split(' ');
+
+    try {
+      dispatch(addImages(storyToUpdate.id, {images: imagesArr}));
+      dispatch(setAllStories());
+      window.alert(`Images added to ${storyToUpdate.title}!`);
+    } catch (exception) {
+      //error handling here!!
+      console.log('error');
+    }
 
   };
 
@@ -78,7 +89,7 @@ const EditStory = () => {
         storyToUpdate &&
         <form className='flex flex-col min-w-[320px] gap-2' onSubmit={handleAddImages}>
           <label className='amulya text-sm'>Add images</label>
-          <textarea placeholder='images...' />
+          <textarea value={formData.images} onChange={(e) => setFormData({...formData, images: e.target.value})} placeholder='images...' />
           <button>
             <p className='synonym text-base font-medium tracking-wider'>submit</p>
           </button>
