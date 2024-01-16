@@ -42,10 +42,12 @@ const allStoriesSlice = createSlice({
     }],
     reducers: {
         setAllReducerStories(state, action) {
-            return action.payload;
+            const newState = action.payload.reverse();
+            return newState;
         },
         addReducerStory(state, action) {
-            return [...state, action.payload];
+            const newState = state.unshift(action.payload);
+            return newState;
         },
         editReducerStory(state, action) {
             const newState = state.map(i => {
