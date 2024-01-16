@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 //services
-import { getAllStories, createNewStory, updateStoryDescription, updateStoryImages, deleteOneStory } from '../services/stories';
+import { getAllStories, createNewStory, deleteOneStory } from '../services/stories';
 
 const allStoriesSlice = createSlice({
     name: 'allStories',

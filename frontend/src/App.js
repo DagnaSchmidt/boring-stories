@@ -24,6 +24,7 @@ function App() {
       <Route path='/' element={<HomePage />} />
       <Route path='/admin' element={<AdminLogin />} />
       <Route path='/dashboard' element={<AdminDashboard />} />
+      <Route path='/*' element={<HomePage />} />
     </Routes>
   );
 }
