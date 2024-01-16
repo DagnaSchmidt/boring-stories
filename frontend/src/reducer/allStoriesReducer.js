@@ -7,38 +7,10 @@ const allStoriesSlice = createSlice({
     name: 'allStories',
     initialState: [{
         id: 1,
-        createdAt: '12 04 2023',
+        createdAt: '12-04-2023',
         title: 'Oslo',
         prevImg: 'prev1.png',
-        altText: ''
-    },
-    {
-        id: 2,
-        createdAt: '02 06 2021',
-        title: 'Hono',
-        prevImg: 'prev1.png',
-        altText: ''
-    },
-    {
-        id: 3,
-        createdAt: '29 11 2020',
-        title: 'Marstrand',
-        prevImg: 'prev1.png',
-        altText: ''
-    },
-    {
-        id: 4,
-        createdAt: '29 11 2020',
-        title: 'Marstrand',
-        prevImg: 'prev1.png',
-        altText: ''
-    },
-    {
-        id: 5,
-        createdAt: '29 11 2020',
-        title: 'Marstrand',
-        prevImg: 'prev1.png',
-        altText: ''
+        altText: 'buildings in Oslo'
     }],
     reducers: {
         setAllReducerStories(state, action) {

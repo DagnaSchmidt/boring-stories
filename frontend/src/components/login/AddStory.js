@@ -36,7 +36,7 @@ const AddStory = () => {
           description: '',
           images: ''
         });
-        window.prompt(`Story ${newStory.title} added!`);
+        window.alert(`Story ${newStory.title} added!`);
       } catch (exception) {
         //error handling here!!
         console.log('error');

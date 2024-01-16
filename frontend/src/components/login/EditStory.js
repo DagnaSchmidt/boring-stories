@@ -15,8 +15,6 @@ const EditStory = () => {
     images: ''
   });
 
-  console.log(formData);
-
   useEffect(() => {
     if(storyToUpdate !== null){
       setFormData({...formData, description: storyToUpdate.description});
@@ -39,7 +37,7 @@ const EditStory = () => {
     try {
       dispatch(editDescription(storyToUpdate.id, {description: formData.description}));
       dispatch(setAllStories());
-      window.prompt(`${storyToUpdate.title} description changed!`);
+      window.alert(`${storyToUpdate.title} description changed!`);
     } catch (exception) {
       //error handling here!!
       console.log('error');
@@ -54,7 +52,7 @@ const EditStory = () => {
     try {
       dispatch(addImages(storyToUpdate.id, {images: imagesArr}));
       dispatch(setAllStories());
-      window.prompt(`Images added to ${storyToUpdate.title}!`);
+      window.alert(`Images added to ${storyToUpdate.title}!`);
     } catch (exception) {
       //error handling here!!
       console.log('error');

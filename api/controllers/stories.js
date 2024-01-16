@@ -92,7 +92,7 @@ storiesRouter.delete('/:id', async (request, response) => {
     return response.status(400).json({error: 'invalid id'});
   }else{
     const deletedStory = await Story.findByIdAndDelete(request.params.id);
-    request.status(204).end();
+    response.status(204).end();
   }
 
-})
+});

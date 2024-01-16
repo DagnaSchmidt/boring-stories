@@ -23,9 +23,6 @@ const AdminDashboard = () => {
     //   // eslint-disable-next-line
     // }, []);
 
-    console.log(admin);
-
-
     const handleLogout = () => {
         dispatch(logout());
         navigate('/');
