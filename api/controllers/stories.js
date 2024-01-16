@@ -75,10 +75,8 @@ storiesRouter.put('/:id/images', async (request, response) => {
 
   if(!storyToUpdate){
     return response.status(400).json({error: 'invalid id'});
-  }else if(body.image.length < 1 || !body.image){
-    return response.status(400).json({error: 'image id too short'});
   }else{
-    const updatedStory = await Story.findByIdAndUpdate(request.params.id, {images: [...storyToUpdate.images, body.image]});
+    const updatedStory = await Story.findByIdAndUpdate(request.params.id, {images: [...storyToUpdate.images, ...body.images]});
     response.status(201).json(updatedStory);
   }
 

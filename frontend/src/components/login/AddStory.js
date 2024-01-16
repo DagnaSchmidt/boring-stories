@@ -20,12 +20,11 @@ const AddStory = () => {
       e.preventDefault();
 
       const imagesArr = formData.images.split(' ');
-      console.log(imagesArr);
 
       const newStory = {
         ...formData,
         images: imagesArr
-      }
+      };
 
       try {
         dispatch(addStory(newStory));
@@ -37,6 +36,7 @@ const AddStory = () => {
           description: '',
           images: ''
         });
+        window.prompt(`Story ${newStory.title} added!`);
       } catch (exception) {
         //error handling here!!
         console.log('error');

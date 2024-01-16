@@ -49,16 +49,6 @@ const allStoriesSlice = createSlice({
             const newState = state.unshift(action.payload);
             return newState;
         },
-        editReducerStory(state, action) {
-            const newState = state.map(i => {
-                if(i.id !== action.payload.id){
-                    return i;
-                }else{
-                    return action.payload;
-                }
-            });
-            return newState;
-        },
         deleteReducerStory(state, action) {
             const newState = state.filter(i => i.id !== action.payload);
             return newState;
@@ -78,20 +68,6 @@ export const addStory = (storyContent) => {
     return async dispatch => {
         const newStory = await createNewStory(storyContent);
         dispatch(addReducerStory(newStory));
-    }
-};
-
-export const editStoryDescription = (id, storyDescription) => {
-    return async dispatch => {
-        const updatedStory = await updateStoryDescription(id, storyDescription);
-        dispatch(editReducerStory(updatedStory));
-    }
-};
-
-export const addStoryImages = (id, storyImages) => {
-    return async dispatch => {
-        const updatedStory = await updateStoryImages(id, storyImages);
-        dispatch(editReducerStory(updatedStory));
     }
 };
 
