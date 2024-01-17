@@ -1,9 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-//components
-import SubMenu from './SubMenu';
-
 //actions
 import { switchSelected, switchSort, closeMenu } from '../../reducer/menuReducer';
 import { setActiveStory } from '../../reducer/activeStoryReducer';
@@ -63,10 +60,6 @@ const Menu = () => {
             <button className='w-full min-w-[110px]' onClick={handleDisplayAll} >
                 <p className='amulya text-center text-lg sm:text-xl font-medium' >all stories</p>
             </button>
-            {
-                menu.selected === 'all' &&
-                    <SubMenu />
-            }
         </li>
         <li className='opacity-50 hover:opacity-100'>
             <button className='w-full min-w-[110px]' onClick={handleDisplayRandomStory}>
