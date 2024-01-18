@@ -44,7 +44,7 @@ const Story = () => {
                         images.map((i, index) => {
                             const link = `https://lh3.google.com/u/0/d/${i}`;
                             return (
-                                <img className='w-full lg:max-h-[620px] lg:object-contain' key={index} src={require(link)} alt={i} />
+                                <img className='w-full lg:max-h-[620px] lg:object-contain' key={index} src={link} alt={i} />
                             )
                         })
                     }
