@@ -15,7 +15,6 @@ const MainLayout = () => {
     const activeStory = useSelector(state => state.activeStory.active);
 
     const allStories = useSelector(state => state.allStories);
-    console.log(allStories);
 
     const deviceWidth = useDeviceWidth();
 
