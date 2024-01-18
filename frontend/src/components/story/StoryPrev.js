@@ -18,7 +18,7 @@ const StoryPrev = ({data}) => {
   return (
     <div className='w-52 border-4 border-secondary bg-primary flex flex-col gap-2'>
         <button onClick={openStory} className='w-full'>
-            <img src={`https://lh3.google.com/u/0/d/${prevImg}`} alt={altText} className='grayscale hover:grayscale-0 w-full h-32 object-cover' />
+            <img src={require(`https://lh3.google.com/u/0/d/${prevImg}`)} alt={altText} className='grayscale hover:grayscale-0 w-full h-32 object-cover' />
         </button>
         <div className='flex justify-between items-end px-1 pb-1'>
             <p className='amulya text-base font-medium'>{title}</p>
