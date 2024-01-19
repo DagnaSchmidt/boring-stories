@@ -41,7 +41,7 @@ const Story = () => {
 
                 <div className='flex flex-col items-center gap-4 lg:gap-8 pb-24'>
                     {
-                        images.map((i, index) => <img className='w-full lg:max-h-[620px] lg:object-contain' key={index} src={`https://drive.google.com/uc?export=view&id=${i}`} alt={i} />)
+                        images.map((i, index) => <img className='w-full lg:max-h-[620px] lg:object-contain' key={index} src={`https://lh3.googleusercontent.com/drive-viewer/${i}`} alt={i} />)
                     }
                 </div>
             </div>
