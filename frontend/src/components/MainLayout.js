@@ -23,42 +23,44 @@ const MainLayout = () => {
     return (
         <LayoutGroup>
             <AnimatePresence>
-                {activeStory &&
-                    <motion.div
-                        className='overflow-hidden'
-                        initial={{width: 0}}
-                        animate={{width: '100%'}}
-                        exit={{width: 0}}
-                        transition={{
-                            duration: 0.6,
-                            ease: 'easeInOut',
-                            delay: 0.3
-                        }}
-                    >
-                        <Story />
-                    </motion.div>
+                {
+                    activeStory &&
+                        <motion.div
+                            className='overflow-hidden'
+                            initial={{width: 0}}
+                            animate={{width: '100%'}}
+                            exit={{width: 0}}
+                            transition={{
+                                duration: 0.6,
+                                ease: 'easeInOut',
+                                delay: 0.3
+                            }}
+                        >
+                            <Story />
+                        </motion.div>
                 }
             </AnimatePresence>
 
             <AnimatePresence>
-                {!activeStory &&
-                    <motion.div
-                        className='overflow-hidden'
-                        initial={{width: 0}}
-                        animate={{width: '100%'}}
-                        exit={{width: 0}}
-                        transition={{
-                            duration: 0.6,
-                            ease: 'easeInOut',
-                            delay: 0.3
-                        }}
-                    >
-                        <HeroSection />
-                    </motion.div>
+                {
+                    !activeStory &&
+                        <motion.div
+                            className='overflow-hidden'
+                            initial={{width: 0}}
+                            animate={{width: '100%'}}
+                            exit={{width: 0}}
+                            transition={{
+                                duration: 0.6,
+                                ease: 'easeInOut',
+                                delay: 0.3
+                            }}
+                        >
+                            <HeroSection />
+                        </motion.div>
                 }
             </AnimatePresence>
         </LayoutGroup>
     )
-}
+};
 
 export default MainLayout;
