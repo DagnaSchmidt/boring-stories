@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import './styles/index.css';
 import { useDispatch } from 'react-redux';
+
+//styling
+import './styles/index.css';
 
 //pages
 import HomePage from './pages/HomePage';
