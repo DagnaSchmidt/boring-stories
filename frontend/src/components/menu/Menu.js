@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
-import { switchSelected, switchSort, closeMenu } from '../../reducer/menuReducer';
+import { switchSelected, closeMenu } from '../../reducer/menuReducer';
 import { setActiveStory } from '../../reducer/activeStoryReducer';
 
 //hooks
@@ -26,7 +26,6 @@ const Menu = () => {
             dispatch(setActiveStory(randomStoryId));
             dispatch(closeMenu());
             dispatch(switchSelected('none'));
-            dispatch(switchSort('date'));
         } catch (exception) {
             //error handling here!!
             console.log('error');

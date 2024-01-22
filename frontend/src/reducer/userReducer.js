@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { adminLogin } from '../services/login';
 import { setToken } from '../services/stories';
 
+
 const userSlice = createSlice({
     name: 'user',
     initialState: null,
@@ -19,19 +20,20 @@ const userSlice = createSlice({
     }
 });
 
+
 export const login = (password) => {
     return async dispatch => {
         const newUser = await adminLogin(password);
         setToken(newUser.token);
         dispatch(setReducerUser(newUser));
     }
-}
+};
 
 export const logout = () => {
     return dispatch => {
         dispatch(clearReducerUser());
     }
-}
+};
 
 export const { setReducerUser, clearReducerUser } = userSlice.actions;
 export default userSlice.reducer;

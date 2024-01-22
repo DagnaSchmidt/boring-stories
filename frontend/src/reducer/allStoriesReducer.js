@@ -3,15 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 //services
 import { getAllStories, createNewStory, deleteOneStory } from '../services/stories';
 
+
 const allStoriesSlice = createSlice({
     name: 'allStories',
-    initialState: [{
-        id: 1,
-        createdAt: '12-04-2023',
-        title: 'Oslo',
-        prevImg: 'prev1.png',
-        altText: 'buildings in Oslo'
-    }],
+    initialState: [],
     reducers: {
         setAllReducerStories(state, action) {
             const newState = action.payload.reverse();
