@@ -5,7 +5,7 @@
 
 <br />
 <div align="center">
-    <img src="./screens//logo-boring-stories.png" alt="Logo" width="80">
+    <img src="./screens//logo-boring-stories.png" alt="Logo" width="280">
 
   <h3 align="center">Boring Stories - photographer's blog</h3>
 
@@ -32,3 +32,23 @@
 
 React, Redux Toolkit, Tailwind, Framer Motion </br>
 Backend: Node.js, Express, MongoDB
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+* []()
+* []()
+* []()
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[stars-shield]: https://img.shields.io/github/stars/DagnaSchmidt/boring-stories.svg?style=for-the-badge
+[stars-url]: https://github.com/DagnaSchmidt/boring-stories/stargazers
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/dagna-schmidt-90ba37207
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
