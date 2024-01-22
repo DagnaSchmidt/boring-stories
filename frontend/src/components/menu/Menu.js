@@ -10,13 +10,12 @@ import useDeviceWidth from '../../hooks/useDeviceWidth';
 
 
 const Menu = () => {
+    const dispatch = useDispatch();
     const menu = useSelector(state => state.menu);
     const allStories = useSelector(state => state.allStories);
     const amountOfStories = allStories.length;
 
     const deviceWidth = useDeviceWidth();
-
-    const dispatch = useDispatch();
 
     const handleDisplayRandomStory = () => {
         const randomNumber = Math.floor(Math.random() * amountOfStories);
@@ -27,8 +26,7 @@ const Menu = () => {
             dispatch(closeMenu());
             dispatch(switchSelected('none'));
         } catch (exception) {
-            //error handling here!!
-            console.log('error');
+            console.log('error with loading random story');
         }
     }
 
@@ -47,6 +45,7 @@ const Menu = () => {
             dispatch(switchSelected('all'));
         }
     }
+
 
   return (
     <ul className={`h-full flex ${(deviceWidth < 640 && menu.selected !== 'none') ? 'pt-16 justify-center' : 'flex-col justify-center align-middle gap-20'}`}>
@@ -67,6 +66,6 @@ const Menu = () => {
         </li>
     </ul>
   )
-}
+};
 
 export default Menu;
