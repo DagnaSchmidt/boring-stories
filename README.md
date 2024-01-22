@@ -25,6 +25,14 @@
 
 ## About The Project
 
+<div align="center">
+    <img src="./screens//stories-mobile_1.png" alt="Logo" width="280">
+    <img src="./screens//stories-mobile_2.png" alt="Logo" width="280">
+    <img src="./screens//stories-mobile_4.png" alt="Logo" width="280">
+</div>
+
+<p>add project description here</p>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
