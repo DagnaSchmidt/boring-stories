@@ -25,13 +25,18 @@
 
 ## About The Project
 
+</br>
+
 <div align="center">
     <img src="./screens//stories-mobile_1.png" alt="Logo" width="280">
     <img src="./screens//stories-mobile_2.png" alt="Logo" width="280">
     <img src="./screens//stories-mobile_4.png" alt="Logo" width="280">
 </div>
 
-<p>add project description here</p>
+</br>
+
+<p>Boring Stories website is a photographer's blog. Boasts a clean and simple design, letting the stories take center stage. No distractions, just the pure joy of storytelling.</p>
+<p>Inspired by the belief that even the most ordinary moments have the potential to be extraordinary.</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
