@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setEditStory, editDescription, addImages } from '../../reducer/editStoryReducer';
 import { setAllStories } from '../../reducer/allStoriesReducer';
 
+
 const EditStory = () => {
   const dispatch = useDispatch();
   const stories = useSelector(state => state.allStories);
@@ -26,8 +27,7 @@ const EditStory = () => {
     try {
       dispatch(setEditStory(e.target.value));
     } catch (exception) {
-        //error handling here!!
-        console.log('error');
+        console.log('failed to get story to update');
     }
   };
 
@@ -39,8 +39,7 @@ const EditStory = () => {
       dispatch(setAllStories());
       window.alert(`${storyToUpdate.title} description changed!`);
     } catch (exception) {
-      //error handling here!!
-      console.log('error');
+      console.log('failed to edit description');
     }
   };
 
@@ -54,8 +53,7 @@ const EditStory = () => {
       dispatch(setAllStories());
       window.alert(`Images added to ${storyToUpdate.title}!`);
     } catch (exception) {
-      //error handling here!!
-      console.log('error');
+      console.log('failed to add images to story');
     }
 
   };
@@ -76,28 +74,28 @@ const EditStory = () => {
 
       {
         storyToUpdate &&
-        <form className='flex flex-col min-w-[320px] gap-2' onSubmit={handleDescriptionChange}>
-          <label className='amulya text-sm'>Edit description</label>
-          <textarea value={formData.description} onChange={(e) => setFormData({...formData, description: e.target.value})} placeholder='description...' />
-          <button>
-            <p className='synonym text-base font-medium tracking-wider'>submit</p>
-          </button>
-        </form>
+          <form className='flex flex-col min-w-[320px] gap-2' onSubmit={handleDescriptionChange}>
+            <label className='amulya text-sm'>Edit description</label>
+            <textarea value={formData.description} onChange={(e) => setFormData({...formData, description: e.target.value})} placeholder='description...' />
+            <button>
+              <p className='synonym text-base font-medium tracking-wider'>submit</p>
+            </button>
+          </form>
       }
 
       {
         storyToUpdate &&
-        <form className='flex flex-col min-w-[320px] gap-2' onSubmit={handleAddImages}>
-          <label className='amulya text-sm'>Add images</label>
-          <textarea value={formData.images} onChange={(e) => setFormData({...formData, images: e.target.value})} placeholder='images...' />
-          <button>
-            <p className='synonym text-base font-medium tracking-wider'>submit</p>
-          </button>
-        </form>
+          <form className='flex flex-col min-w-[320px] gap-2' onSubmit={handleAddImages}>
+            <label className='amulya text-sm'>Add images</label>
+            <textarea value={formData.images} onChange={(e) => setFormData({...formData, images: e.target.value})} placeholder='images...' />
+            <button>
+              <p className='synonym text-base font-medium tracking-wider'>submit</p>
+            </button>
+          </form>
       }
 
     </div>
   )
-}
+};
 
 export default EditStory;

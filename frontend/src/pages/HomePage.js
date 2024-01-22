@@ -6,6 +6,7 @@ import MenuContainer from '../components/menu/MenuContainer';
 import GridLayout from '../components/story/GridLayout';
 import MainLayout from '../components/MainLayout';
 
+
 const HomePage = () => {
   return (
     <div className='bg-primary flex 2xl:justify-center h-screen'>
@@ -18,6 +19,6 @@ const HomePage = () => {
       </div>
     </div>
   )
-}
+};
 
 export default HomePage;

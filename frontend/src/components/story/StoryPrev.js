@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { setActiveStory } from '../../reducer/activeStoryReducer';
 import { closeMenu } from '../../reducer/menuReducer';
 
+
 const StoryPrev = ({data}) => {
     const { createdAt, title, prevImg, altText, id } = data;
     const dispatch = useDispatch();

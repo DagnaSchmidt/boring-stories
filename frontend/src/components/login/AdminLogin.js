@@ -20,7 +20,6 @@ const AdminLogin = () => {
       setPassword('');
       navigate('/dashboard');
     } catch (exception) {
-      //error handling here!!
       console.log('wrong credentials');
     }
   }
@@ -45,6 +44,6 @@ const AdminLogin = () => {
       </form>
     </div>
   )
-}
+};
 
 export default AdminLogin;

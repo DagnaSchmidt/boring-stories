@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+//services
 import { getOneStory, updateStoryDescription, updateStoryImages } from '../services/stories';
+
 
 const editStorySlice = createSlice({
     name: 'editStory',
@@ -14,6 +16,7 @@ const editStorySlice = createSlice({
         }
     }
 });
+
 
 export const setEditStory = (id) => {
     return async dispatch => {

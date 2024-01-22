@@ -20,16 +20,6 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-/* .scrollbar-dot {
-    scrollbar-color: #DFDFDF transparent;
-}
-.scrollbar-dot::-webkit-scrollbar-track {
-    opacity: 0;
-}
-.scrollbar-dot::-webkit-scrollbar-thumb {
-    color: #DFDFDF;
-    border-radius: 4px;
-} */
 
 /* fonts classes */
 .amulya {

@@ -23,6 +23,6 @@ const MenuButton = () => {
 
     </button>
   )
-}
+};
 
 export default MenuButton;

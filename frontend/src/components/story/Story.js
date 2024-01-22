@@ -14,7 +14,7 @@ const Story = () => {
 
     const scrollContentContainerTop = () => {
         scrollRef.current.scrollTo({top: 0, behavior: 'smooth'});
-    }
+    };
 
   return (
         <div className='w-full h-full relative'>
@@ -48,6 +48,6 @@ const Story = () => {
 
         </div>
   )
-}
+};
 
 export default Story;
