@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 //components
 import AddStory from './AddStory';
@@ -14,18 +14,15 @@ import { logout } from '../../reducer/userReducer';
 const AdminDashboard = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    // const admin = useSelector(state => state.user);
-
-    // useEffect(() => {
-    //   if(admin === null){
-    //     navigate('/');
-    //   }
-    //   // eslint-disable-next-line
-    // }, []);
+    const admin = useSelector(state => state.user);
 
     const handleLogout = () => {
         dispatch(logout());
         navigate('/');
+    };
+
+    if(admin === null){
+      return null;
     }
 
 
@@ -39,6 +36,6 @@ const AdminDashboard = () => {
         <DeleteStory />
     </div>
   )
-}
+};
 
 export default AdminDashboard;

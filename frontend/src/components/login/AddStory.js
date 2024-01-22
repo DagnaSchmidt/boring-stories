@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 //actions
 import { addStory } from '../../reducer/allStoriesReducer';
 
+
 const AddStory = () => {
   const dispatch = useDispatch();
 
@@ -38,15 +39,14 @@ const AddStory = () => {
         });
         window.alert(`Story ${newStory.title} added!`);
       } catch (exception) {
-        //error handling here!!
-        console.log('error');
+        console.log('failed to add new story');
       }
-  }
+  };
 
   const handleInputChange = (e) => {
       const { name, value } = e.target;
       setFormData({...formData, [name]: value});
-  }
+  };
 
 
   return (
@@ -107,6 +107,6 @@ const AddStory = () => {
       </form>
     </div>
   )
-}
+};
 
 export default AddStory;

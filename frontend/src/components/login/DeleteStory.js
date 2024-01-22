@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 //actions
 import { deleteStory } from '../../reducer/allStoriesReducer';
 
+
 const DeleteStory = () => {
   const dispatch = useDispatch();
   const stories = useSelector(state => state.allStories);
@@ -18,12 +19,11 @@ const DeleteStory = () => {
         dispatch(deleteStory(storyId));
         window.alert(`Story ${storyId} deleted!`);
       } catch (exception) {
-        //error handling here!!
-        console.log('error');
+        console.log('failed to delete a story');
       }
     }
+  };
 
-  }
 
   return (
     <div>
@@ -43,6 +43,6 @@ const DeleteStory = () => {
 
     </div>
   )
-}
+};
 
 export default DeleteStory;
