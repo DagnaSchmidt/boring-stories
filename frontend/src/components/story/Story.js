@@ -39,9 +39,9 @@ const Story = () => {
 
                 <p className='amulya text-body py-24 text-center font-thin tracking-widest'>scroll</p>
 
-                <div className='flex flex-col items-center gap-4 lg:gap-8 pb-24'>
+                <div className='flex flex-col items-center gap-8 lg:gap-12 pb-24'>
                     {
-                        images.map((i, index) => <img className='w-full lg:max-h-[620px] lg:object-contain' key={index} src={i} alt={i} />)
+                        images.map((i, index) => <img className='w-full lg:max-h-[600px] lg:object-contain' key={index} src={i} alt={i} />)
                     }
                 </div>
             </div>
