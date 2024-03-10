@@ -13,10 +13,10 @@ const Story = () => {
     const scrollRef = useRef(null);
 
     const scrollContentContainerTop = () => {
-        scrollRef.current.scrollTo({top: 0, behavior: 'smooth'});
+        scrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-  return (
+    return (
         <div className='w-full h-full relative'>
             <button onClick={() => dispatch(clearActiveStory())}>
                 <h2 className='text-body pt-[22px] pb-[50px] hover:cursor-pointer font-medium tracking-tighter amulya'>
@@ -32,7 +32,7 @@ const Story = () => {
                 <div className='border-4 border-secondary w-full flex flex-col gap-8 px-4 py-8'>
                     <div className='flex justify-between '>
                         <p className='amulya text-base font-medium'>{title}</p>
-                        <p className='amulya text-sm'>{createdAt.slice(0,10)}</p>
+                        <p className='amulya text-sm'>{createdAt.slice(0, 10)}</p>
                     </div>
                     <p className='amulya text-sm px-4'>{description}</p>
                 </div>
@@ -41,13 +41,13 @@ const Story = () => {
 
                 <div className='flex flex-col items-center gap-8 lg:gap-12 pb-24'>
                     {
-                        images.map((i, index) => <img className='w-full lg:max-h-[600px] lg:object-contain' key={index} src={i} alt={i} />)
+                        images.map((i, index) => <img className='w-full lg:max-h-[600px] lg:object-contain' key={index} src={`../../images/${i}`} alt={i} />)
                     }
                 </div>
             </div>
 
         </div>
-  )
+    )
 };
 
 export default Story;
