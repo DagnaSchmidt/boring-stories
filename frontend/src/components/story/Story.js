@@ -41,7 +41,7 @@ const Story = () => {
 
                 <div className='flex flex-col items-center gap-8 lg:gap-12 pb-24'>
                     {
-                        images.map((i, index) => <img className='w-full lg:max-h-[600px] lg:object-contain' key={index} src={`../../images/${i}`} alt={i} />)
+                        images.map((i, index) => <img className='w-full lg:max-h-[600px] lg:object-contain' key={index} src={require(`../../images/${i}`)} alt={i} />)
                     }
                 </div>
             </div>
